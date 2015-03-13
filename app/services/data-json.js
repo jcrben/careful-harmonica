@@ -1,5 +1,5 @@
 {
-  "users": {
+  "users": [{
     "tough.gem2059@fastmail,com": {
       "name": "Ben",
       "resume": "insert resume",
@@ -42,39 +42,8 @@
           }
         }
       }] 
-    }
-  }
-}
-
-/* 
-***** FIREBASE NOTES
-Per https://www.firebase.com/docs/web/guide/understanding-data.html Firebase keys:
- "can include any unicode characters except for . $ # [ ] / and ASCII control characters 0-31 and 127".
-Note: email address has period replaced by a comma for above reason.
-For keys
-
-***** MOCKUP DATA GENERATOR
-var mock_users = ['tough.gem2059@fastmail.com', 'poppin3000@gmail.com', '', 'Ryan'];
-var mock_employers = ['Google', 'LinkedIn', 'Facebook', 'Twitter'];
-var mock_positions = ['Software Engineer', 'Software Developer', 'UX Engineer', 'Validation Engineer'];
-var mock_resume = 'Insert resume file';
-var mock_locations = ['San Jose', 'San Francisco', 'Seattle', 'Los Angeles', 'Portland'];
-var mock_experience = '6 months';
-var mock_education = ['Bachelor\'s degree', 'High-school diploma'];
-var badges = ['Enterprising', 'Seasoned', 'Scalleywag', 'Captain']
-
-var users = [];
-mock_users.forEach(function(uname, i, coll) {
-  var user = {};
-  user.uname = {};
-})
-
-
-****** JSON TEMPLATE
-// Note email '.' has been replaced with ','
-{
-  "users": {
-    "tough.gem2059@fastmail,com": {
+    },
+  "poppin3000@gmail,com": {
       "name": "Ben",
       "resume": "insert resume",
       "desired_job": "Software Engineer",
@@ -114,46 +83,8 @@ mock_users.forEach(function(uname, i, coll) {
               "responses": 0
             }
           }
-        }]
-      } 
+        }
+      }] 
     }
-  }
+  }]
 }
-/*
-
-***** FIREBASE SCHEMA LAYOUT
-users[email address]      
-  name      
-  resume      
-  cover letter      
-  desired job     
-  education     
-  experience      
-  location      
-  profile picture     
-  contact info      
-  badges      
-  friends     
-  to-dos      
-  employers     
-  employer name     
-    position    
-    job title   
-      created at  
-      description 
-      progress  
-        application (bool)
-        resume
-        research notes
-        emails
-        calls
-        interviews
-        responses
-
-badges[badge_name]
-  icon
-  point_property
-
-employers
-careers
-*/
