@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/careful-harmonica/careful-harmonica.png?label=ready&title=Ready)](https://waffle.io/careful-harmonica/careful-harmonica)
 # Project Name #
 
 <!-- 
