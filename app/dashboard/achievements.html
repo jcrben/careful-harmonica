@@ -2,7 +2,10 @@
   <h2>Achievements</h2>
   <div ng-repeat="achievement in achievements" class="achievement">
     <h4> {{ achievement.title }} </h4>
-    <p> {{ achievement.description }} </p>
-    <p> {{ achievement.date }} </p>
+    <p>
+      {{ achievement.description }} {{ achievement.employer }} to earn
+      <b>{{ achievement.score }}</b>
+      doubloons.
+    </p>
   </div>
 </div>
