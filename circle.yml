@@ -1,0 +1,35 @@
+## the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  # Version of node to use
+  node:
+    version: 0.10.0
+
+  # Override /etc/hosts
+  hosts:
+    circlehost: 127.0.0.1
+
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
+
+
+## dependencies
+dependencies:
+  pre:
+    - npm install -g bower
+    - bower install
+
+
+## deployment commands
+deployment:
+  production:
+    branch: master
+    commands:
+      - grunt build
+      - npm install -g firebase-tools
+      - firebase login --email $FIREBASE_USERNAME --password $FIREBASE_PASSWORD
+      - firebase deploy

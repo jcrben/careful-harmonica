@@ -1,0 +1,9 @@
+{
+  "firebase": "careful-harmonica",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
