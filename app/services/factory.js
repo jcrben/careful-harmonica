@@ -1,26 +1,30 @@
 (function() {
   'use strict';
 
-  angular.module('app.factory', [])
-    .factory('Data', function() {
+  angular.module('app.factory', ['app.dictionary', 'app.employers'])
+    .factory('Data', function(Dictionary, Employers) {
+
       var getTasks = function() {
-        return [
-          {
-            title: 'Introduce yourself',
-            description: 'Send your resume and cover letter to Microsoft to receive 50 points.'
-          },
-          {
-            title: 'Find a posting',
-            description: 'Add a new job posting to receive 20 points.'
-          },
-          {
-            title: 'Send a thank-you card',
-            description: 'Follow-up with Apple to receive 30 points.'
-          }
-        ];
+        var results = [];
+
+        for (var employer in Employers.data) {
+          var task = {};
+          var job = Employers.data[employer];
+
+          task.employer = employer;
+          task.type = Dictionary.findNextTask(job);
+          task.title = Dictionary.taskTitle(task.type);
+          task.description = Dictionary.taskDescription(task.type)
+          task.score = Dictionary.taskScore(task.type);
+
+          results.push(task);
+        }
+
+        return results;
       };
 
       var getAchievements = function() {
+        
         return [
           {
             title: 'Sent a resume',

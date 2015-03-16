@@ -39,8 +39,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'DashboardCtrl'
         },
         'tasks@dashboard': {
-          templateUrl: 'dashboard/tasks.html',
-          controller: 'DashboardCtrl'
+          templateUrl: 'dashboard/tasks.html'
         },
         'score@dashboard': {
           templateUrl: 'dashboard/score.html',
@@ -51,8 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'DashboardCtrl'
         },
         'achievements@dashboard': {
-          templateUrl: 'dashboard/achievements.html',
-          controller: 'DashboardCtrl'
+          templateUrl: 'dashboard/achievements.html'
         },
         'social@dashboard': {
           templateUrl: 'dashboard/social.html',
