@@ -16,35 +16,38 @@
     <!-- endbuild -->
   </head>
   <body ng-app="carefulHarmonicaApp">
-    <!-- Add your site or application content here -->
+
     <header class="header">
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <a class="navbar-brand" href="#/">carefulHarmonica</a>
         </div>
+        <div class="collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/">Home</a></li>
+            <li><a ng-href="#/">About</a></li>
+            <li><a ng-href="#/">Contact</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
-    <div class="container">
+    <div class="app-container">
       <div ui-view ng-controller="MainCtrl"></div>
     </div>
 
-    <!-- <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div> -->
+    <footer class="footer">
+      <!-- footer will go here -->
+    </footer>
 
+    <script>
+      !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+      r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+      }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
