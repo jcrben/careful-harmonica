@@ -22,6 +22,7 @@ dependencies:
   pre:
     - npm install -g bower
     - bower install
+    - gem install compass
 
 
 ## deployment commands
