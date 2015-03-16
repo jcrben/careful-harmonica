@@ -1,5 +1,5 @@
 angular.module('ng-firebase', ['firebase'])
-.factory('Users', function($firebaseObject) {
+.factory('Users', function($firebaseObject, $firebaseArray) {
   var refURL = "https://careful-harmonica.firebaseio.com/users/";
   var data = {};
   var getUsers = function() {
@@ -16,17 +16,24 @@ angular.module('ng-firebase', ['firebase'])
 
   var getEmployers = function(user) {
     var tasks = [];
-    var obj = $firebaseObject(new Firebase(refURL + '0/'+user+'/user/employers'));
-    obj.$loaded().then(function(newData) {
+    var obj = $firebaseObject(new Firebase(refURL + '0/'+user+'/employers'));
+    obj.$loaded().then(function(obj) {
       angular.forEach(obj, function(val, i) {
         // console.log(val);
       })
     })
-  }
+  };
+
+  var createNewUser = function(email) {
+    var obj = $firebaseArray(new Firebase(refURL + email));
+    obj[email] = {name: 'Ryan'};
+    return obj.$save();
+  };
 
   return {
     getUsers: getUsers,
-    getEmployers: getEmployers
+    getEmployers: getEmployers,
+    createNewUser: createNewUser
   }
 })
 .controller('firebaseCtrl', function($scope, $firebaseArray, $firebaseObject, Users) {
@@ -37,6 +44,10 @@ angular.module('ng-firebase', ['firebase'])
     //   var users = users;
     //   console.log(users);
     // });
+    Users.createNewUser('nextemail').then(function(data) {
+      console.log('User saved', data);
+    })
+    
     Users.getUsers().then(function(data) {
       console.log(data);
     })
