@@ -430,7 +430,7 @@ module.exports = function (grunt) {
         'sass:server'
       ],
       test: [
-        'sass'
+        'compass'
       ],
       dist: [
         'compass',
