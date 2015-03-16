@@ -30,8 +30,15 @@
         return results;
       };
 
+      var addEmployer = function(name, job) {
+        var newEmployer = {name: name, job: job};
+        Employers.addNew(newEmployer);
+      }
+
+
       return {
-        getTasks: getTasks
+        getTasks: getTasks,
+        addEmployer: addEmployer
       }
     });
 })();

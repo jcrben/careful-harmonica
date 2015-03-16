@@ -43,8 +43,27 @@
         }
       };
 
+      var addNew = function(newEmployer) {
+        var employer = {}
+
+        employer.name = newEmployer.name
+        employer.description = newEmployer.job;
+        employer.application = false;
+        employer.resume = false;
+        employer.research_notes = false
+        employer.emails = 0;
+        employer.calls = 0;
+        employer.interviews = 0;
+        employer.responses = 0;
+        employer.followups = 0;
+
+        data[newEmployer.name] = employer;
+        console.log(data);
+      }
+
       return {
-        data: data
+        data: data,
+        addNew: addNew
       };
     });
 

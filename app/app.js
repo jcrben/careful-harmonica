@@ -81,6 +81,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         '': {
           templateUrl: 'employer/employer.html',
           controller: 'EmployerCtrl'
+        },
+        'new@employer': {
+          templateUrl: 'employer/new.html'
         }
       }
     })
