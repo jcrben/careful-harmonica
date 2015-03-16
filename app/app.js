@@ -18,7 +18,9 @@ var app = angular
     'ui.router',
 
     'app.factory',
-    'app.dashboard'
+    'app.dashboard',
+    'app.employer',
+    'app.user'
   ]);
 
 // ********************** Route Definitions **********************
@@ -37,8 +39,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'DashboardCtrl'
         },
         'tasks@dashboard': {
-          templateUrl: 'dashboard/tasks.html',
-          controller: 'DashboardCtrl'
+          templateUrl: 'dashboard/tasks.html'
         },
         'score@dashboard': {
           templateUrl: 'dashboard/score.html',
@@ -49,8 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'DashboardCtrl'
         },
         'achievements@dashboard': {
-          templateUrl: 'dashboard/achievements.html',
-          controller: 'DashboardCtrl'
+          templateUrl: 'dashboard/achievements.html'
         },
         'social@dashboard': {
           templateUrl: 'dashboard/social.html',
@@ -60,19 +60,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     // ********************** User Profile **********************
-    .state('profile', {
-      url: '/profile',
+    .state('user', {
+      url: '/user',
       views: {
         '': {
-          templateUrl: 'profile/profile.html',
-          controller: 'ProfileCtrl'
+          templateUrl: 'user/user.html',
+          controller: 'UserCtrl'
+        },
+        'tasks@user': {
+          templateUrl: 'user/tasks.html',
+          controller: 'UserCtrl'
         }
       }
     })
 
     // ********************** Job Page **********************
-    .state('job', {
-      url: '/job',
+    .state('employer', {
+      url: '/employer',
       views: {
         '': {
           templateUrl: 'employer/employer.html',
