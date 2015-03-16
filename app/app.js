@@ -17,6 +17,7 @@ var app = angular
     'ngTouch',
     'ui.router',
 
+    'app.factory',
     'app.dashboard'
   ]);
 
