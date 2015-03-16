@@ -3,20 +3,24 @@
 
   angular.module('app.dictionary', [])
     .factory('Dictionary', function() {
+      var priorities = [
+        'research_notes', 'resume', 'application',
+        'emails', 'calls', 'followups'
+      ];
 
       var findNextTask = function(job) {
-        if (!job.research_notes) {
-          return 'research_notes';
-        } else if (!job.resume) {
-          return 'resume';
-        } else if (!job.application) {
-          return 'application';
-        } else if (!job.emails) {
-          return 'emails';
-        } else if (!job.calls) {
-          return 'calls';
-        } else if (!job.followups) {
-          return 'followups';
+        for (var i = 0; i < priorities.length; i++) {
+          if (!job[priorities[i]]) {
+            return priorities[i];
+          }
+        }
+      };
+
+      var findRecentTask = function(job) {
+        for (var i = priorities.length; i >= 0; i--) {
+          if (job[priorities[i]]) {
+            return priorities[i];
+          }
         }
       };
 
@@ -64,6 +68,7 @@
 
       return {
         findNextTask: findNextTask,
+        findRecentTask: findRecentTask,
         taskTitle: taskTitle,
         taskDescription: taskDescription,
         taskScore: taskScore
