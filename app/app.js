@@ -15,11 +15,13 @@ var app = angular
     'ngResource',
     'ngSanitize',
     'ngTouch',
+    'ngMaterial',
     'ui.router',
 
     'app.factory',
     'app.dashboard',
     'app.employer',
+    'app.onboard',
     'app.user'
   ]);
 
@@ -114,29 +116,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // ********************** Onboarding **********************
     .state('onboard', {
+      // abstract: true,
       url: '/onboard',
-      views: {
-        '': {
-          templateUrl: 'onboard/onboard.html',
-          controller: 'OnboardCtrl'
-        },
-        'dream@onboard': {
-          templateUrl: 'onboard/dream.html'
-        },
-        'upload': {
-          templateUrl: 'onboard/upload.html',
-          controller: 'OnboardCtrl'
-        },
-        'goal': {
-          templateUrl: 'onboard/goal.html',
-          controller: 'OnboardCtrl'
-        },
-        'install': {
-          templateUrl: 'onboard/install.html',
-          controller: 'OnboardCtrl'
-        }
-      }
+      templateUrl: 'onboard/onboard.html'
+    })
+
+    .state('onboard.dream', {
+      url: '/onboard/dream',
+      templateUrl: 'onboard/dream.html',
+    })
+
+    .state('onboard.upload', {
+      url: '/onboard/upload',
+      templateUrl: 'onboard/upload.html',
+    })
+
+    .state('onboard.goal', {
+      url: '/onboard/goal',
+      templateUrl: 'onboard/goal.html',
+    })
+
+    .state('onboard.install', {
+      url: '/onboard/install',
+      templateUrl: 'onboard/install.html',
     });
+
 })
 
 .run(function($location, Data) {
