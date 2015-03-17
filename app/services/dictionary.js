@@ -8,20 +8,72 @@
         'emails', 'calls', 'followups'
       ];
 
-      var findNextTask = function(job) {
+      var findNextTask = function(job, num) {
+        var results = [];
+
         for (var i = 0; i < priorities.length; i++) {
-          if (!job[priorities[i]]) {
-            return priorities[i];
+          if (!job[priorities[i]] && num) {
+            results.push(priorities[i]);
+            num--;
           }
         }
+
+        return results;
       };
 
-      var findRecentTask = function(job) {
+      var findRecentTask = function(job, num) {
+        var results = [];
+
         for (var i = priorities.length; i >= 0; i--) {
-          if (job[priorities[i]]) {
-            return priorities[i];
+          if (job[priorities[i]] && num) {
+            results.push(priorities[i]);
+            num--;
           }
         }
+
+        return results;
+      };
+
+      var taskDetails = function(type) {
+        var dictionary = {
+          application: {
+            title: 'Gather ye\' papers!',
+            description: 'Send an application to',
+            score: 20
+          },
+          resume: {
+            title: 'Who goes there?',
+            description: 'Send a resume to',
+            score: 10
+          },
+          researchNotes: {
+            title: 'Reconnaissance',
+            description: 'Research',
+            score: 5
+          },
+          emails: {
+            title: 'Message in a bottle',
+            description: 'Send an email to',
+            score: 10
+          },
+          calls: {
+            title: 'Ahoy, matey!',
+            description: 'Make a call to',
+            score: 25
+          },
+          interviews: {
+            title: 'All hands on deck!',
+            description:  'Interview with',
+            score: 50
+          },
+          followups: {
+            title: 'Don\'t forget',
+            description: 'Follow up with',
+            score: 30
+          }
+        };
+
+        return dictionary[type];
       };
 
       var taskTitle = function(type) {
@@ -71,7 +123,8 @@
         findRecentTask: findRecentTask,
         taskTitle: taskTitle,
         taskDescription: taskDescription,
-        taskScore: taskScore
+        taskScore: taskScore,
+        taskDetails: taskDetails
       };
     });
 

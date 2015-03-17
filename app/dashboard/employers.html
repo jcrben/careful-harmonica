@@ -1,0 +1,9 @@
+<div class="employers">
+  <h2>Employers</h2>
+  <div ng-repeat="employer in employers" class="employer" ui-sref="employer({employer: employer.name})">
+    <h4> {{ employer.name }} </h4>
+    <p> {{ employer.description }} </p>
+  </div>
+</div>
+
+<!-- ng-click="showEmployer(employer.name)" -->

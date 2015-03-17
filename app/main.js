@@ -12,5 +12,5 @@ angular.module('carefulHarmonicaApp')
 
     $scope.logout = function() {
       Data.logout();
-    }
+    };
  });

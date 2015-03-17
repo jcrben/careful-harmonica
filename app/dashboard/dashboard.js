@@ -3,6 +3,7 @@
 
   angular.module('app.dashboard', [])
     .controller('DashboardCtrl', ['$scope', 'Data', function($scope, Data) {
+      var syncObj = {};
       $scope.user = {};
 
       $scope.signup = function() {
@@ -10,11 +11,21 @@
       };
 
       $scope.signin = function() {
-        Data.signin($scope.user.email, $scope.user.password);
+        Data.signin($scope.user.email, $scope.user.password, sync);
       };
 
-      $scope.tasks = Data.getTasks('current');
-      $scope.achievements = Data.getTasks('completed');
+      var sync = function() {
+        syncObj = Data.checkAuth(function() {
+          console.log('no login detected');
+        }, $scope);
+
+        $scope.employers = syncObj.employers;
+        $scope.tasks = Data.getTasks('current');
+        $scope.achievements = Data.getTasks('completed');
+      };
+
+      sync();
+
     }]);
 
 })();

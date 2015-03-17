@@ -60,6 +60,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         },
         'signin@dashboard': {
           templateUrl: 'auth/signin.html'
+        },
+        'employers@dashboard': {
+          templateUrl: 'dashboard/employers.html'
         }
       }
     })
@@ -81,7 +84,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // ********************** Job Page **********************
     .state('employer', {
-      url: '/employer',
+      url: '/employer/:employer',
       views: {
         '': {
           templateUrl: 'employer/employer.html',
