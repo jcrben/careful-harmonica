@@ -4,7 +4,6 @@
   angular.module('app.dashboard', [])
     .controller('DashboardCtrl', ['$scope', 'Data', function($scope, Data) {
       $scope.user = {};
-      Data.checkAuth();
 
       $scope.signup = function() {
         Data.signup($scope.user.email, $scope.user.password);

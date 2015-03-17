@@ -79,21 +79,31 @@
             });
           }
         });
-      }
+      };
 
-      var checkAuth = function() {
+      var checkAuth = function(cb) {
         var ref = new Firebase(refURL);
         ref.onAuth(function(authData) {
+          if (authData === null) {
+            cb();
+          }
           console.log(authData);
-        })
-      }
+        });
+      };
+
+      var logout = function() {
+        var ref = new Firebase(refURL);
+        console.log('firing');
+        ref.unauth();
+      };
 
       return {
         getTasks: getTasks,
         addEmployer: addEmployer,
         signup: signup,
         signin: signin,
-        checkAuth: checkAuth
-      }
+        checkAuth: checkAuth,
+        logout: logout
+      };
     });
 })();
