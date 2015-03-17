@@ -109,7 +109,9 @@
             cb();
           } else {
             userID = authData.uid;
-            sync.employers = getEmployers($scope);
+            if ($scope) {
+              sync.employers = getEmployers($scope);
+            }
           }
         });
 
