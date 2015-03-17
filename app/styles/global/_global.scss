@@ -1,0 +1,12 @@
+/*
+ *  _global.scss
+ * -----------------------------------------
+ *  Site-wide custom styles
+ */
+
+.app-container {
+	padding-bottom: 5em;
+	background: whitesmoke;
+}
+
+@import "navigation";

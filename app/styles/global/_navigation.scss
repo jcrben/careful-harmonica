@@ -1,0 +1,29 @@
+/*
+ *  _navigation.scss
+ * -----------------------------------------
+ *  Site-wide nav-bar
+ */
+
+header.header {
+	padding: 3em 0 0 0;
+	nav.navbar {
+		text-align: center;
+		@include outer-container;
+		.navbar-header {
+			h1 {
+				margin-bottom: 0.25em;
+			}
+			@include span-columns(12);
+		}
+		.navbar-nav {
+			li {
+				display: inline-block;
+				padding: 0 1em;
+				margin: 1em;
+			}
+			padding-bottom: 1em;
+			border-bottom: 1px solid gainsboro;
+			@include span-columns(12);
+		}
+	}
+}
