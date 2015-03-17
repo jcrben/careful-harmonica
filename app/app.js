@@ -117,12 +117,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/onboard',
       views: {
         '': {
-          templateUrl: 'onboard/onboarding.html',
+          templateUrl: 'onboard/onboard.html',
           controller: 'OnboardCtrl'
         },
-        'dream': {
-          templateUrl: 'onboard/dream.html',
-          controller: 'OnboardCtrl'
+        'dream@onboard': {
+          templateUrl: 'onboard/dream.html'
         },
         'upload': {
           templateUrl: 'onboard/upload.html',
