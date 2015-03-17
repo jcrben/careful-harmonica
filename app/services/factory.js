@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('app.factory', ['app.dictionary', 'app.employers'])
+  angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
     .factory('Data', function(Dictionary, Employers) {
+      var refURL = "https://careful-harmonica.firebaseio.com/";
 
       var getTasks = function(taskType) {
         var getTask;
@@ -35,10 +36,33 @@
         Employers.addNew(newEmployer);
       }
 
+      var addUser = function(email, password) {
+        var ref = new Firebase(refURL);
+        ref.createUser({
+          email: email, 
+          password: password
+        }, function(err, userData) {
+            if (err) {
+              if (err.code === 'EMAIL_TAKEN') {
+                console.log('Email in use');
+              }
+              if (err.code === 'INVALID_EMAIL') {
+                console.log('Invalid email');
+              }
+              else {
+                console.log('Error creating user', err);
+              }
+            } else {
+              console.log('Successfuly created user', userData);
+            }
+        })
+      }
+
 
       return {
         getTasks: getTasks,
-        addEmployer: addEmployer
+        addEmployer: addEmployer,
+        addUser: addUser
       }
     });
 })();

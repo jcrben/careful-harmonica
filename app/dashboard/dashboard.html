@@ -1,6 +1,9 @@
-<div class="dashboard">
+<div class="dashboard" ng-controller="DashboardCtrl as dashboard">
   <h1>Careful Harmonica</h1>
   <h2>Dashboard</h2>
+  <input ng-model="user.email" name="email" placeholder="Please enter your email">
+  <input ng-model="user.password" name="password" placeholder="Please enter your password">
+  <input type="button" value="Sign up" ng-click="signup()">
   <div ui-view="tasks"></div>
   <div ui-view="achievements"></div>
 </div>
