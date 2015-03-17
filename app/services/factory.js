@@ -4,6 +4,7 @@
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
     .factory('Data', function(Dictionary, Employers) {
       var refURL = "https://careful-harmonica.firebaseio.com/";
+      var userID = null;
 
       var getTasks = function(taskType) {
         var getTask;
@@ -32,15 +33,16 @@
       };
 
       var addEmployer = function(name, job) {
+        var ref = new Firebase(refURL);
         var newEmployer = {name: name, job: job};
-        Employers.addNew(newEmployer);
-      }
+        ref.child('users').child(userID).update(Employers.addNew(newEmployer));
+      };
 
       var signup = function(email, password) {
         var ref = new Firebase(refURL);
 
         ref.createUser({
-          email: email, 
+          email: email,
           password: password
         }, function(err, userData) {
             if (err) {
@@ -62,12 +64,12 @@
               })
             }
         })
-      }
+      };
 
       var signin = function(email, password) {
         var ref = new Firebase(refURL);
         var auth = ref.authWithPassword({
-          email: email, 
+          email: email,
           password: password
         }, function(err, user) {
           if (err) {
@@ -86,8 +88,9 @@
         ref.onAuth(function(authData) {
           if (authData === null) {
             cb();
+          } else {
+            userID = authData.uid;
           }
-          console.log(authData);
         });
       };
 

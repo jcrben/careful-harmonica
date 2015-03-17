@@ -4,7 +4,7 @@
   angular.module('app.dictionary', [])
     .factory('Dictionary', function() {
       var priorities = [
-        'research_notes', 'resume', 'application',
+        'researchNotes', 'resume', 'application',
         'emails', 'calls', 'followups'
       ];
 
@@ -28,7 +28,7 @@
         var dictionary = {
           'application': 'Gather ye\' papers!',
           'resume': 'Who goes there?',
-          'research_notes': 'Reconnaissance',
+          'researchNotes': 'Reconnaissance',
           'emails': 'Message in a bottle',
           'calls': 'Ahoy, matey!',
           'interviews': 'All hands on deck!',
@@ -42,7 +42,7 @@
         var dictionary = {
           'application': 'Send an application to',
           'resume': 'Send a resume to',
-          'research_notes': 'Research',
+          'researchNotes': 'Research',
           'emails': 'Send an email to',
           'calls': 'Make a call to',
           'interviews': 'Interview with',
@@ -56,7 +56,7 @@
         var dictionary = {
           'application': 20,
           'resume': 10,
-          'research_notes': 5,
+          'researchNotes': 5,
           'emails': 10,
           'calls': 25,
           'interviews': 50,
