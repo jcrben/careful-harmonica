@@ -43,18 +43,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
         },
         'score@dashboard': {
           templateUrl: 'dashboard/score.html',
-          controller: 'DashboardCtrl'
         },
         'analytics@dashboard': {
           templateUrl: 'dashboard/analytics.html',
-          controller: 'DashboardCtrl'
         },
         'achievements@dashboard': {
           templateUrl: 'dashboard/achievements.html'
         },
         'social@dashboard': {
           templateUrl: 'dashboard/social.html',
-          controller: 'DashboardCtrl'
+        },
+        'signup@dashboard': {
+          templateUrl: 'auth/signup.html'
+        },
+        'signin@dashboard': {
+          templateUrl: 'auth/signin.html'
         }
       }
     })
