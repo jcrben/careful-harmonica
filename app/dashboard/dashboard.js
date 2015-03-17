@@ -6,8 +6,13 @@
       $scope.user = {};
 
       $scope.signup = function() {
-        Data.addUser($scope.user.email, $scope.user.password);
-      }
+        Data.signup($scope.user.email, $scope.user.password);
+      };
+
+      $scope.signin = function() {
+        Data.signin($scope.user.email, $scope.user.password);
+      };
+      
       $scope.tasks = Data.getTasks('current');
       $scope.achievements = Data.getTasks('completed');
     }]);
