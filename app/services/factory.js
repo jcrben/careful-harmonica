@@ -36,8 +36,9 @@
         Employers.addNew(newEmployer);
       }
 
-      var addUser = function(email, password) {
+      var signup = function(email, password) {
         var ref = new Firebase(refURL);
+
         ref.createUser({
           email: email, 
           password: password
@@ -54,7 +55,26 @@
               }
             } else {
               console.log('Successfuly created user', userData);
+              ref.child('users').child(userData.uid).set({
+                email: email,
+                signupDate: Firebase.ServerValue.TIMESTAMP,
+                lastLogin: Firebase.ServerValue.TIMESTAMP
+              })
             }
+        })
+      }
+
+      var signin = function(email, password) {
+        var ref = new Firebase(refURL);
+        var auth = new authWithPassword(ref, function(err, user) {
+          if (err) {
+            console.log('Error signing in', err);
+          } else {
+            console.log('Successfully discovered user');
+            ref.child('users').child(user.uid).update({
+              lastLogin: Firebase.ServerValue.TIMESTAMP
+            })
+          }
         })
       }
 
@@ -62,7 +82,8 @@
       return {
         getTasks: getTasks,
         addEmployer: addEmployer,
-        addUser: addUser
+        signup: signup,
+        signin: signin
       }
     });
 })();
