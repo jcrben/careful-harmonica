@@ -501,8 +501,8 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('runkarma', [
-    'karma'
+  grunt.registerTask('testClient', [
+    'karma:unit'
   ]);
   
 };
