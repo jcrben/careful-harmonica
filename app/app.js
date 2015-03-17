@@ -116,28 +116,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // ********************** Onboarding **********************
     .state('onboard', {
-      // abstract: true,
+      abstract: true,
       url: '/onboard',
       templateUrl: 'onboard/onboard.html'
     })
 
     .state('onboard.dream', {
-      url: '/onboard/dream',
+      url: '/dream',
       templateUrl: 'onboard/dream.html',
     })
 
     .state('onboard.upload', {
-      url: '/onboard/upload',
+      url: '/upload',
       templateUrl: 'onboard/upload.html',
     })
 
     .state('onboard.goal', {
-      url: '/onboard/goal',
+      url: '/goal',
       templateUrl: 'onboard/goal.html',
     })
 
     .state('onboard.install', {
-      url: '/onboard/install',
+      url: '/install',
       templateUrl: 'onboard/install.html',
     });
 
