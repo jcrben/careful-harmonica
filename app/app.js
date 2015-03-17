@@ -15,11 +15,13 @@ var app = angular
     'ngResource',
     'ngSanitize',
     'ngTouch',
+    'ngMaterial',
     'ui.router',
 
     'app.factory',
     'app.dashboard',
     'app.employer',
+    'app.onboard',
     'app.user'
   ]);
 
@@ -124,7 +126,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'onboard/dream.html',
     })
 
-    .state('onbaord.upload', {
+    .state('onboard.upload', {
       url: '/onboard/upload',
       templateUrl: 'onboard/upload.html',
     })
