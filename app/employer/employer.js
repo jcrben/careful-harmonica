@@ -4,15 +4,17 @@
   .module('app.employer', [])
   .controller('EmployerCtrl', EmployerCtrl)
 
-  EmployerCtrl.$inject = ['$scope', 'Data'];
+  EmployerCtrl.$inject = ['$scope', 'Data', '$stateParams'];
 
-  function EmployerCtrl($scope, Data) {
-    $scope.employer = {};
-    $scope.employer.name = "Employer Name";
-    $scope.employer.job = "Job Description";
+  function EmployerCtrl($scope, Data, $stateParams) {
+    $scope.newEmployer = {};
+    $scope.newEmployer.name = 'Employer Name';
+    $scope.newEmployer.job = 'Job Description';
+
+    $scope.employer = $stateParams;
 
     $scope.newJob = function() {
-      Data.addEmployer($scope.employer.name, $scope.employer.job);
+      Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
     };
   }
 })();

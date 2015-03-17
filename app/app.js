@@ -84,7 +84,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // ********************** Job Page **********************
     .state('employer', {
-      url: '/employer',
+      url: '/employer/:employer',
       views: {
         '': {
           templateUrl: 'employer/employer.html',
