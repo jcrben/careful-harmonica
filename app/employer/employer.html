@@ -1,6 +1,9 @@
 <div class="job-view">
   <div ui-view="new"></div>
-  <h2>Github</h2>
+  <div ng-model="employer">
+    <h2> {{ employer.name }} </h2>
+
+  </div>
   <div class="public-to-dos">
     <h3>Missions</h3>
     <ul>

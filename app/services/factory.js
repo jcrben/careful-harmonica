@@ -38,7 +38,7 @@
         ref.child('users').child(userID).child('employers').update(Employers.addNew(newEmployer));
       };
 
-      var getEmployers = function($scope) {
+      var getEmployers = function($scope, employer) {
         var ref = new Firebase(refURL);
         var emp = ref.child('users').child(userID).child('employers');
         var empSync = $firebaseObject(emp);
