@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Data', function(Dictionary, Employers) {
+    .factory('Data', function(Dictionary, Employers, $state) {
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var userID = null;
 
@@ -62,6 +62,7 @@
                 signupDate: Firebase.ServerValue.TIMESTAMP,
                 lastLogin: Firebase.ServerValue.TIMESTAMP
               });
+              $state.go('user');
             }
         });
       };
@@ -79,6 +80,7 @@
             ref.child('users').child(user.uid).update({
               lastLogin: Firebase.ServerValue.TIMESTAMP
             });
+            $state.go('user');
           }
         });
       };
@@ -96,7 +98,7 @@
 
       var logout = function() {
         var ref = new Firebase(refURL);
-        console.log('firing');
+        $state.go('dashboard');
         ref.unauth();
       };
 
