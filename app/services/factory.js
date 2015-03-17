@@ -66,24 +66,34 @@
 
       var signin = function(email, password) {
         var ref = new Firebase(refURL);
-        var auth = new authWithPassword(ref, function(err, user) {
+        var auth = ref.authWithPassword({
+          email: email, 
+          password: password
+        }, function(err, user) {
           if (err) {
             console.log('Error signing in', err);
           } else {
-            console.log('Successfully discovered user');
+            console.log('Successfully discovered user', user);
             ref.child('users').child(user.uid).update({
               lastLogin: Firebase.ServerValue.TIMESTAMP
-            })
+            });
           }
-        })
+        });
       }
 
+      var checkAuth = function() {
+        var ref = new Firebase(refURL);
+        ref.onAuth(function(authData) {
+          console.log(authData);
+        })
+      }
 
       return {
         getTasks: getTasks,
         addEmployer: addEmployer,
         signup: signup,
-        signin: signin
+        signin: signin,
+        checkAuth: checkAuth
       }
     });
 })();
