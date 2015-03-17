@@ -18,6 +18,9 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false
-  }
+    "angular": true
+  },
+  "predef": [
+    "Firebase"
+  ]
 }

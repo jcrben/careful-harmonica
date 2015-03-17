@@ -5,41 +5,41 @@
     .factory('Employers', function() {
 
       var data = {
-        "Apple": {
-          "createdAt": "2015-03-12",
-          "description": "Full Stack Engineer",
-          "application": true,
-          "resume": true,
-          "researchNotes": true,
-          "emails": 2,
-          "calls": 1,
-          "interviews": 1,
-          "responses": 0,
-          "followups": 0
+        'Apple': {
+          'createdAt': '2015-03-12',
+          'description': 'Full Stack Engineer',
+          'application': true,
+          'resume': true,
+          'researchNotes': true,
+          'emails': 2,
+          'calls': 1,
+          'interviews': 1,
+          'responses': 0,
+          'followups': 0
         },
-        "Microsoft": {
-          "createdAt": "2015-03-12",
-          "description": "Front End Engineer",
-          "application": true,
-          "resume": false,
-          "researchNotes": false,
-          "emails": 1,
-          "calls": 0,
-          "interviews": 0,
-          "responses": 0,
-          "followups": 0
+        'Microsoft': {
+          'createdAt': '2015-03-12',
+          'description': 'Front End Engineer',
+          'application': true,
+          'resume': false,
+          'researchNotes': false,
+          'emails': 1,
+          'calls': 0,
+          'interviews': 0,
+          'responses': 0,
+          'followups': 0
         },
-        "IBM": {
-          "createdAt": "2015-03-12",
-          "description": "Back End Engineer",
-          "application": true,
-          "resume": true,
-          "researchNotes": true,
-          "emails": 1,
-          "calls": 0,
-          "interviews": 0,
-          "responses": 0,
-          "followups": 0
+        'IBM': {
+          'createdAt': '2015-03-12',
+          'description': 'Back End Engineer',
+          'application': true,
+          'resume': true,
+          'researchNotes': true,
+          'emails': 1,
+          'calls': 0,
+          'interviews': 0,
+          'responses': 0,
+          'followups': 0
         }
       };
 
@@ -51,7 +51,7 @@
         employer.description = newEmployer.job;
         employer.application = false;
         employer.resume = false;
-        employer.researchNotes = false
+        employer.researchNotes = false;
         employer.emails = 0;
         employer.calls = 0;
         employer.interviews = 0;
@@ -60,7 +60,7 @@
 
         employerObject[employer.name] = employer;
         return employerObject;
-      }
+      };
 
       return {
         data: data,
