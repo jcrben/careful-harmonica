@@ -5,5 +5,24 @@
  */
 
 .dashboard {
-	padding: 0 2.5%;
+	@include outer-container;
+	.view-title,
+	.view-actions {
+		@include span-columns(10);
+		@include shift(1);
+	}
+	.view-title {
+		text-align: center;
+		padding: 4em 1em;
+		font-size: 0.75em;
+		h2 {
+			margin: 0;
+		}
+	}
+	.view-actions {
+		background: white;
+		padding: 3em;
+		border-radius: 1em;
+		box-shadow: inset 0 0 1px 1px gainsboro;
+	}
 }

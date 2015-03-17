@@ -4,10 +4,9 @@
  *  Site-wide custom styles
  */
 
-
 .app-container {
-	@include outer-container;
+	padding-bottom: 5em;
+	background: whitesmoke;
 }
-
 
 @import "navigation";
