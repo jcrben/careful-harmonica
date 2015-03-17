@@ -3,7 +3,8 @@
 
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
     .factory('Data', function(Dictionary, Employers, $state, $firebaseObject) {
-      var refURL = "https://careful-harmonica.firebaseio.com/";
+      var refURL = 'https://careful-harmonica.firebaseio.com/';
+      var ref = new Firebase(refURL);
       var userID = null;
 
       var getTasks = function(taskType, num) {
@@ -34,17 +35,15 @@
       };
 
       var addEmployer = function(name, job) {
-        var ref = new Firebase(refURL);
         var newEmployer = {name: name, job: job};
         ref.child('users').child(userID).child('employers').update(Employers.addNew(newEmployer));
       };
 
-      var getEmployers = function($scope, employer) {
-        var ref = new Firebase(refURL);
+      var getEmployers = function($scope) {
         var emp = ref.child('users').child(userID).child('employers');
         var empSync = $firebaseObject(emp);
 
-        emp.on('value', function(snapshot) {
+        emp.on('value', function() {
           empSync.$bindTo($scope, 'data');
         });
 
@@ -52,7 +51,6 @@
       };
 
       var signup = function(email, password) {
-        var ref = new Firebase(refURL);
 
         ref.createUser({
           email: email,
@@ -82,7 +80,6 @@
       };
 
       var signin = function(email, password, success) {
-        var ref = new Firebase(refURL);
         ref.authWithPassword({
           email: email,
           password: password
@@ -101,7 +98,6 @@
       };
 
       var checkAuth = function(cb, $scope) {
-        var ref = new Firebase(refURL);
         var sync = {};
 
         ref.onAuth(function(authData) {
@@ -119,7 +115,6 @@
       };
 
       var logout = function() {
-        var ref = new Firebase(refURL);
         $state.go('dashboard');
         ref.unauth();
       };

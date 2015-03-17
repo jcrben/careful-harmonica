@@ -2,23 +2,15 @@
   'use strict';
   angular
   .module('app.employer', [])
-  .controller('EmployerCtrl', EmployerCtrl)
+  .controller('EmployerCtrl', EmployerCtrl);
 
   EmployerCtrl.$inject = ['$scope', 'Data', '$stateParams', '$filter', 'Dictionary'];
 
   function EmployerCtrl($scope, Data, $stateParams, $filter, Dictionary) {
     var syncObj = {};
-    $scope.newEmployer = {};
-    $scope.newEmployer.name = 'Employer Name';
-    $scope.newEmployer.job = 'Job Description';
-
     $scope.employer = {};
     $scope.tasks = [];
     $scope.employerName = $stateParams.employer;
-
-    $scope.newJob = function() {
-      Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
-    };
 
     $scope.init = function() {
       $scope.employer = syncObj.employers[$scope.employerName];
@@ -41,5 +33,13 @@
     };
 
     sync();
+
+    // TODO: Move new employer function to a separate module
+    $scope.newEmployer = {};
+    $scope.newEmployer.name = 'Employer Name';
+    $scope.newEmployer.job = 'Job Description';
+    $scope.newJob = function() {
+      Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
+    };
   }
 })();
