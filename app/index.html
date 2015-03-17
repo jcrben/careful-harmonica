@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="carefulHarmonicaApp">
+  <body ng-app="carefulHarmonicaApp" ng-controller="MainCtrl">
 
     <header class="header">
+    <div class="logout">
+    <input type="button" value="Logout" ng-click="logout()">
+    </div>
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <h1 class="logo">
@@ -33,7 +36,7 @@
     </header>
 
     <div class="app-container">
-      <div ui-view ng-controller="MainCtrl"></div>
+      <div ui-view></div>
     </div>
 
     <footer class="footer">

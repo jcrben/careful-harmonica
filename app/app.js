@@ -117,7 +117,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/onboard',
       views: {
         '': {
-          templateUrl: 'onboard/onboard.html',
+          templateUrl: 'onboard/onboarding.html',
           controller: 'OnboardCtrl'
         },
         'dream': {
@@ -138,4 +138,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
+})
+
+.run(function($location, Data) {
+  Data.checkAuth(function() {
+    $location.path('/');
+  });
 });
