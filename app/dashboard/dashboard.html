@@ -3,9 +3,8 @@
   	<h2>Dashboard</h2>
   </div>
   <div class="view-actions">
-  	<input ng-model="user.email" name="email" placeholder="Please enter your email">
-  	<input ng-model="user.password" name="password" placeholder="Please enter your password">
-  	<input type="button" value="Sign up" ng-click="signup()">
+    <div ui-view="signup"></div>
+    <div ui-view="signin"></div>
   	<div ui-view="tasks"></div>
   	<div ui-view="achievements"></div>
   </div>
