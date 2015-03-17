@@ -6,9 +6,10 @@
       var refURL = "https://careful-harmonica.firebaseio.com/";
       var userID = null;
 
-      var getTasks = function(taskType) {
+      var getTasks = function(taskType, num) {
         var getTask;
         var results = [];
+        num = num || 1;
 
         if (taskType === 'current') {
           getTask = Dictionary.findNextTask;
@@ -21,7 +22,7 @@
           var job = Employers.data[employer];
 
           task.employer = employer;
-          task.type = getTask(job);
+          task.type = getTask(job, num)[0];
           task.title = Dictionary.taskTitle(task.type);
           task.description = Dictionary.taskDescription(task.type);
           task.score = Dictionary.taskScore(task.type);
