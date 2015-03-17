@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Data', function(Dictionary, Employers, $state) {
-      var refURL = 'https://careful-harmonica.firebaseio.com/';
+    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject) {
+      var refURL = "https://careful-harmonica.firebaseio.com/";
       var userID = null;
 
       var getTasks = function(taskType) {
@@ -35,7 +35,18 @@
       var addEmployer = function(name, job) {
         var ref = new Firebase(refURL);
         var newEmployer = {name: name, job: job};
-        ref.child('users').child(userID).update(Employers.addNew(newEmployer));
+        ref.child('users').child(userID).child('employers').update(Employers.addNew(newEmployer));
+      };
+
+      var getEmployers = function($scope) {
+        var ref = new Firebase(refURL);
+        var emp = ref.child('users').child(userID).child('employers');
+        var empSync = $firebaseObject(emp);
+        emp.on('value', function(snapshot) {
+          empSync.$bindTo($scope, 'data');
+        });
+
+        return empSync;
       };
 
       var signup = function(email, password) {
@@ -57,17 +68,18 @@
               }
             } else {
               console.log('Successfuly created user', userData);
-              ref.child('users').child(userData.uid).set({
+              var newUser = {
                 email: email,
                 signupDate: Firebase.ServerValue.TIMESTAMP,
-                lastLogin: Firebase.ServerValue.TIMESTAMP
-              });
+                employers: Employers.data
+              };
               $state.go('user');
+              ref.child('users').child(userData.uid).set(newUser);
             }
         });
       };
 
-      var signin = function(email, password) {
+      var signin = function(email, password, success) {
         var ref = new Firebase(refURL);
         ref.authWithPassword({
           email: email,
@@ -77,6 +89,7 @@
             console.log('Error signing in', err);
           } else {
             console.log('Successfully discovered user', user);
+            success();
             ref.child('users').child(user.uid).update({
               lastLogin: Firebase.ServerValue.TIMESTAMP
             });
@@ -85,13 +98,14 @@
         });
       };
 
-      var checkAuth = function(cb) {
+      var checkAuth = function(fail, success) {
         var ref = new Firebase(refURL);
         ref.onAuth(function(authData) {
           if (authData === null) {
-            cb();
+            fail();
           } else {
             userID = authData.uid;
+            // success();
           }
         });
       };
@@ -105,6 +119,7 @@
       return {
         getTasks: getTasks,
         addEmployer: addEmployer,
+        getEmployers: getEmployers,
         signup: signup,
         signin: signin,
         checkAuth: checkAuth,

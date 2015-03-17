@@ -10,11 +10,14 @@
       };
 
       $scope.signin = function() {
-        Data.signin($scope.user.email, $scope.user.password);
+        Data.signin($scope.user.email, $scope.user.password, function() {
+          $scope.employers = Data.getEmployers($scope);
+        });
       };
 
       $scope.tasks = Data.getTasks('current');
       $scope.achievements = Data.getTasks('completed');
+      Data.getEmployers($scope);
     }]);
 
 })();

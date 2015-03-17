@@ -60,6 +60,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         },
         'signin@dashboard': {
           templateUrl: 'auth/signin.html'
+        },
+        'employers@dashboard': {
+          templateUrl: 'dashboard/employers.html'
         }
       }
     })

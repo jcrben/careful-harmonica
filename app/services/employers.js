@@ -6,6 +6,7 @@
 
       var data = {
         'Apple': {
+          'name': 'Apple',
           'createdAt': '2015-03-12',
           'description': 'Full Stack Engineer',
           'application': true,
@@ -18,6 +19,7 @@
           'followups': 0
         },
         'Microsoft': {
+          'name': 'Microsoft',
           'createdAt': '2015-03-12',
           'description': 'Front End Engineer',
           'application': true,
@@ -30,6 +32,7 @@
           'followups': 0
         },
         'IBM': {
+          'name': 'IBM',
           'createdAt': '2015-03-12',
           'description': 'Back End Engineer',
           'application': true,
