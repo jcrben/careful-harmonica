@@ -17,7 +17,11 @@
 
       $scope.tasks = Data.getTasks('current');
       $scope.achievements = Data.getTasks('completed');
-      Data.getEmployers($scope);
+      var sync = Data.checkAuth(function() {
+        console.log('no login detected');
+      }, $scope);
+      $scope.employers = sync.employers;
+      // Data.getEmployers($scope);
     }]);
 
 })();

@@ -147,7 +147,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 })
 
 .run(function($location, Data) {
-  Data.checkAuth(function() {
-    $location.path('/');
-  });
+  // Data.checkAuth(function() {
+  //   $location.path('/');
+  // });
 });

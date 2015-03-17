@@ -42,6 +42,7 @@
         var ref = new Firebase(refURL);
         var emp = ref.child('users').child(userID).child('employers');
         var empSync = $firebaseObject(emp);
+
         emp.on('value', function(snapshot) {
           empSync.$bindTo($scope, 'data');
         });
@@ -98,16 +99,20 @@
         });
       };
 
-      var checkAuth = function(fail, success) {
+      var checkAuth = function(cb, $scope) {
         var ref = new Firebase(refURL);
+        var sync = {};
+
         ref.onAuth(function(authData) {
           if (authData === null) {
-            fail();
+            cb();
           } else {
             userID = authData.uid;
-            // success();
+            sync.employers = getEmployers($scope);
           }
         });
+
+        return sync;
       };
 
       var logout = function() {
