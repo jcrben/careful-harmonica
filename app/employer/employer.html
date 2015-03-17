@@ -1,8 +1,11 @@
-<div class="job-view">
-  <div ui-view="new"></div>
+<div class="employer">
+  <div class="view-title">
     <h2> {{ employer.name }} </h2>
-    <h4> Current Missions </h4>
+  </div>
 
+  <div class="view-actions">
+
+    <h4> Current Missions </h4>
     <div ng-model="employer" class="public-to-dos"  ng-repeat="task in tasks">
       <h5> {{ task.title }} </h5>
       <p>
