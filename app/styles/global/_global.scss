@@ -1,0 +1,13 @@
+/*
+ *  _global.scss
+ * -----------------------------------------
+ *  Site-wide custom styles
+ */
+
+
+.app-container {
+	@include outer-container;
+}
+
+
+@import "navigation";
