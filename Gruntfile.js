@@ -500,4 +500,9 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('testClient', [
+    'karma:unit'
+  ]);
+  
 };
