@@ -1,4 +1,11 @@
-<div class="onboarding">
-	<h1>Welcome to {{ app.name }}</h1>
-  <div ui-view="dream"></div>
+<div ng-controller="OnboardCtrl" class="onboard">
+	<div class="view-title">
+		<h2>Welcome aboard!</h1>
+	</div>
+  <div class="view-actions">
+  	<div ui-view></div>
+  </div>
+  <md-content class="steps-nav">
+  	<md-button class="md-raised md-primary">Next</md-button>
+  </md-content>
 </div>
