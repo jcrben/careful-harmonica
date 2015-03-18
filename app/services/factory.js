@@ -68,14 +68,16 @@
                 console.log('Error creating user', err);
               }
             } else {
-              console.log('Successfuly created user', userData);
-              var newUser = {
-                email: email,
-                signupDate: Firebase.ServerValue.TIMESTAMP,
-                employers: Employers.data
-              };
-              $state.go('user');
-              ref.child('users').child(userData.uid).set(newUser);
+                console.log('Successfuly created user', userData);
+                var newUser = {
+                  email: email,
+                  signupDate: Firebase.ServerValue.TIMESTAMP,
+                  lastLogin: Firebase.ServerValue.TIMESTAMP,
+                  employers: Employers.data
+                };
+                ref.child('users').child(userData.uid).set(newUser);
+                signin(email, password);
+                $state.go('onboard.dream');
             }
         });
       };
@@ -93,7 +95,7 @@
             ref.child('users').child(user.uid).update({
               lastLogin: Firebase.ServerValue.TIMESTAMP
             });
-            $state.go('user');
+            $state.go('onboard.dream');
           }
         });
       };
@@ -110,13 +112,14 @@
               sync.employers = getEmployers($scope);
             }
           }
+          console.log('checkAuth', authData);
         });
 
         return sync;
       };
 
       var logout = function() {
-        $state.go('dashboard');
+        $state.go('land');
         ref.unauth();
       };
 
