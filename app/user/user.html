@@ -1,34 +1,18 @@
 <div class="user-view">
-  <h2>Pavan</h2>
-  <div class="badges">
-    <h3>Badges:</h3>
-    <ul>
-      <li>Badge 1</li>
-      <li>Badge 2</li>
-      <li>Badge 3</li>
-      <li>Badge 4</li>
-    </ul>
-  </div> 
+  <h2>Leaderboard</h2>
+  <table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Score</th>
+    <th>Badges</th>
+    <th>Longest Streak</th>
+  </tr>
+  <tr ng-model="users" ng-repeat="user in users">
+    <td>{{user.email}}</td>
+    <td>Cabin hand</td>
+    <td>{{user.score}}</td>
+    <td>Fearless, Wanderer</td>
+    <td></td>
 
-  <div class="recent-activity">
-    <!-- d3 data goes here -->
-    <div class="activity-stats">
-      <h3>Activity Stats</h3>
-      <div>
-        <h4>Outbound activity in the last week</h4>
-        <p>108</p>
-        <p>From March 7th - March 14th</p>
-      </div>
-      <div>
-        <h4>Longest Streak</h4>
-        <p>9 hrs</p>
-        <p>From March 7th - March 14th</p>
-      </div>  
-      <div>
-        <h4>Inbounds</h4>
-        <p>3</p>
-        <p>From March 7th - March 14th</p>
-      </div>
-    </div>
-  </div>
-</div>
+  </table>
