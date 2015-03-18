@@ -30,7 +30,7 @@
                 };
                 ref.child('users').child(authData.uid).set(newUser);
                 $state.go('onboard.dream');
-              } else if (!isNew) {
+              } else {
                 $state.go('dashboard');
                 ref.child('users').child(authData.uid).update({
                   lastLogin: Firebase.ServerValue.TIMESTAMP

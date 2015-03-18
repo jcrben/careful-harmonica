@@ -12,14 +12,9 @@
     $scope.users = [];
     var getUsers = $firebaseObject(ref);
     getUsers.$loaded().then(function(data) {
-      console.log(data);
       angular.forEach(data.users, function(user) {
-        if (user.score === undefined) {
-          user.score = 'TBA';
-        }
         $scope.users.push(user);
       });
-      console.log($scope.users);
     });
   }
 })();

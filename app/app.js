@@ -159,7 +159,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-.run(function($location, Auth, $state) {
+.run(function($location, Auth) {
   Auth.checkAuth(function() {
     $location.path('/land');
   });
