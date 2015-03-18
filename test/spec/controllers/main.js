@@ -10,9 +10,9 @@ describe('the friend module', function() {
 
   describe('the friend module\'s html templates', function () {
 
-    // it('should not have any <html> tags', function () {
+    it('should not have any <html> tags', function () {
 
-    // });
+    });
 
     // it('should have a section for badges', function () {
 
