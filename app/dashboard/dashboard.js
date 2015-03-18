@@ -40,15 +40,14 @@
       };
 
       var sync = function() {
-        syncObj = Data.checkAuth(function() {
-          console.log('no login detected');
+        syncObj = Data.checkAuth({
+          success: function() {
+            $scope.init();
+          },
+          error: function() {
+            console.log('no login detected');
+          }
         }, $scope);
-
-        // $scope.tasks = Data.getTasks('current');
-        // $scope.achievements = Data.getTasks('completed');
-        syncObj.employers.$loaded().then(function() {
-          $scope.init();
-        });
       };
 
       sync();

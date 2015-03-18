@@ -33,12 +33,13 @@
 
         ref.onAuth(function(authData) {
           if (authData === null) {
-            cb();
+            cb.error();
           } else {
             userID = authData.uid;
             if ($scope) {
               sync.employers = getEmployers($scope);
               sync.score = getScore($scope);
+              cb.success();
             }
           }
         });
