@@ -6,4 +6,30 @@
 
 .onboard {
 	@include outer-container;
+	.onboard-description {
+		text-align: center;
+		p {
+			display: inline-block;
+			text-align: justify;
+			max-width: 80%;
+		}
+	}
+	.onboard-action {
+		max-width: 35em;
+		margin: 0 auto;
+		text-align: center;
+		md-radio-group {
+			display: inline-block;
+			text-align: left;
+		}
+		label {
+			text-align: left;
+		}
+	}
+	.steps-nav {
+		margin: 2em 0 0 0;
+	}
+	.next {
+		float: right;
+	}
 }

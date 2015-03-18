@@ -1,22 +1,20 @@
 <section class="first-goal">
 	<div class="onboard-description">
-		<h2>Great! Now let's get motivated.</h2>
+		<h4>Motivation Time</h4>
+		<p>
+			The key to finding your dream job is to keep motivated, and keeping motivated is easier when you set the right kinds of goals. Choose one goal from below to get started!
+		</p>
 	</div>
 	<div class="onboard-action">
-		<form action="/">
-			<h4>Choose your first goal</h4>
-			<input type="radio" name="job-listing">
-			<label for="job-listing">Add a job listing</label>
-			<input type="radio" name="resume">
-			<label for="resume">Write a résumé</label>
-			<input type="radio" name="research">
-			<label for="research">Research a company</label>
-			<input type="radio" name="cover-letter">
-			<label for="cover-letter">Write a cover letter</label>
-			<input type="radio" name="apply">
-			<label for="apply">Begin a job application</label>
-		</form>
+		<md-radio-group>
+	    <md-radio-button value="job-listing">Add a job listing</md-radio-button>
+	    <md-radio-button value="resume">Write a résumé</md-radio-button>
+	    <md-radio-button value="research">Research a company</md-radio-button>
+	    <md-radio-button value="apply">Begin a job application</md-radio-button>
+	  </md-radio-group>
 	</div>
-	<a href="#prev" class="btn prev">Back</a>
-	<a href="#next" class="btn next">Onwards!</a>	
+	<md-content class="steps-nav">
+		<md-button ui-sref="onboard.upload" class="prev md-raised">Back</md-button>
+  	<md-button ui-sref="onboard.install" class="next md-raised md-primary">I'm Ready!</md-button>
+  </md-content>
 </section>
