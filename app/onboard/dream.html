@@ -5,11 +5,14 @@
 		<p>You’re already on your way to Job Land. Let’s get started!</p>
 	</div>
 	<div class="onboard-action">
-		<form action="/">
-			<label for="dream-job">Tell me your dream job</label>
-			<input type="text" name="dream-job"/>
+		<form name="dream-job" action="/">
+			<md-input-container flex>
+        <label>Enter your dream job</label>
+        <input ng-model="user.dreamJob" placeholder="Lion Tamer">
+      </md-input-container>
 		</form>
 	</div>
-	<a href="#prev" class="btn prev">Back</a>
-	<a href="#next" class="btn next">Onwards!</a>
+	<md-content class="steps-nav">
+  	<md-button ui-sref="onboard.upload" class="md-raised md-primary">Onwards!</md-button>
+  </md-content>
 </section>
