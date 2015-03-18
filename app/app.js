@@ -57,12 +57,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         'social@dashboard': {
           templateUrl: 'dashboard/social.html',
         },
-        'signup@dashboard': {
-          templateUrl: 'auth/signup.html'
-        },
-        'signin@dashboard': {
-          templateUrl: 'auth/signin.html'
-        },
         'employers@dashboard': {
           templateUrl: 'dashboard/employers.html'
         }
@@ -152,9 +146,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'onboard/dream.html',
     })
 
-    .state('onboard.upload', {
-      url: '/upload',
-      templateUrl: 'onboard/upload.html',
+    .state('onboard.assets', {
+      url: '/assets',
+      templateUrl: 'onboard/assets.html',
     })
 
     .state('onboard.goal', {

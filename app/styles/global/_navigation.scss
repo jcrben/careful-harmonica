@@ -14,8 +14,30 @@ header.header {
 		.navbar-header {
 			h1 {
 				margin-bottom: 0.25em;
+    		margin-top: -0.667em;
+    		font-size: 5em;
+				font-family: 'Lobster', handwriting;
 			}
 			@include span-columns(12);
+		}
+		.navbar-brand {
+			color: white;
+			text-shadow: 
+				0 0 1px black, 
+				0 0 2px black, 
+				0 0 3px black;
+			position: relative;
+			z-index: 5;
+			@include transition(0.2s);
+			&:hover {
+				color: whitesmoke;
+				text-shadow: 
+					0 0 1px black, 
+					0 0 2px black, 
+					0 0 3px black,
+					0 0 4px black,
+					0 0 5px black;
+			}
 		}
 		.navbar-nav {
 			li {
