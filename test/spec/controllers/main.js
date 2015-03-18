@@ -47,15 +47,20 @@ describe('the Dictionary factory', function() {
     describe('findNextTask', function() {
 
       it('should return an array of job priorities', function() {
-  
+        var result = Dictionary.findNextTask({}, 5)
+        expect(Array.isArray(result)).to.be.true;
+        expect(result).to.include('researchNotes', 'resume', 'application',
+        'emails', 'calls');
       });
 
-      it('should not return priorities that are that are required for the job', function() {
-
+      it('should not return priorities that are already in the job', function() {
+        var result = Dictionary.findNextTask({researchNotes:true}, 5)
+        expect(result).to.not.include('researchNotes');
       });
 
       it('should only return the number of next tasks requested', function() {
-
+        var result = Dictionary.findNextTask({}, 3);
+        expect(result).to.have.length(3);
       });
 
     });
@@ -63,11 +68,13 @@ describe('the Dictionary factory', function() {
     describe('findRecentTask', function() {
 
       it('should return an array of job priorities', function() {
-
+        var result = Dictionary.findRecentTask({researchNotes:true, resume:true}, 2);
+        expect(Array.isArray(result)).to.be.true;
+        expect(result).to.include('researchNotes', 'resume');
       });
 
       it('should return only recent priorities that are required for the job', function() {
-
+        var result = Dictionary.findRecentTask({researchNotes:true, resume:true}, 2);
       });
 
       it('should only return the number of recent tasks requested', function() {

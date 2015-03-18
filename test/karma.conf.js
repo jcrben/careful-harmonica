@@ -28,7 +28,7 @@ module.exports = function(config) {
 
     // progress reporter: lists each test run and whether they pass/fail
     // coverage reporter: creates coverage reports for every tested browser
-    reporters: [/*'progress', 'coverage'*/],
+    // reporters: [/*'progress', 'coverage'*/],
 
     // web server port
     port: 8080,
