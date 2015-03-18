@@ -22,7 +22,6 @@
             $scope.tasks.push(obj);
 
             type = Dictionary.findRecentTask(employer);
-            console.log(type);
             if (type.length > 0) {
               obj = Dictionary.taskDetails(type[0]);
               obj.employer = employer.name;
