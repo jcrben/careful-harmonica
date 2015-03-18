@@ -1,6 +1,6 @@
 'use strict';
 
-var chai = require('chai');
+// var chai = require('chai');
 // chai.use(require('chai-fs'));
 var assert = chai.assert;
 var should = chai.should();
