@@ -2,9 +2,10 @@
   'use strict';
   angular
   .module('app.user', [])
-  .controller('UserCtrl', UserCtrl)
+  .controller('UserCtrl', UserCtrl);
 
-  function UserCtrl($scope) {
-    // Insert logic
-  }
+  UserCtrl.$inject('$scope', Data);
+
+  function UserCtrl($scope, Data) {
+  };
 })();
