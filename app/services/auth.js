@@ -21,9 +21,10 @@
                   email: authData.github.cachedUserProfile.email,
                   signupDate: Firebase.ServerValue.TIMESTAMP,
                   lastLogin: Firebase.ServerValue.TIMESTAMP,
+                  score: 0,
                   employers: Employers.data
                 };
-                ref.child('users').child(authData.uid).set(newUser); 
+                ref.child('users').child(authData.uid).set(newUser);
                 $state.go('onboard.dream');
               } else {
                 $state.go('dashboard');

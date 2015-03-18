@@ -1,7 +1,8 @@
 <div class="tasks">
-  <h2>Tasks</h2>
-  <div ng-repeat="task in tasks" class="task">
-    <h4> {{ task.title }} </h4>
+  <h4> Current Missions </h4>
+  <div ng-model="employer" class="public-to-dos"
+    ng-repeat="task in tasks" ng-click="clickTask(task)">
+    <h5> {{ task.title }} </h5>
     <p>
       {{ task.description }} {{ task.employer }} to earn
       <b>{{ task.score }}</b>

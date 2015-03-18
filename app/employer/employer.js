@@ -19,8 +19,9 @@
       var taskTypes = Dictionary.findNextTask($scope.employer, 3);
       var achievementTypes = Dictionary.findRecentTask($scope.employer, 3);
 
-      taskTypes.forEach(function(type) {
+      taskTypes.forEach(function(type, i) {
         $scope.tasks.push(Dictionary.taskDetails(type));
+        $scope.tasks[i].employer = $scope.employerName;
       });
       achievementTypes.forEach(function(type, i) {
         $scope.achievements.push(Dictionary.taskDetails(type));
@@ -28,19 +29,20 @@
       });
     };
 
-    $scope.completeTask = function(type) {
-      $scope.employers[$scope.employerName][type] = Data.timeStamp();
-      // $scope.init();
+    $scope.clickTask = function(task) {
+      $scope.employers[$scope.employerName][task.type] = Data.timeStamp();
+      $scope.score.$value += task.score;
     };
 
     var sync = function() {
-      syncObj = Data.checkAuth(function() {
-        console.log('no login detected');
+      syncObj = Data.checkAuth({
+        success: function() {
+          // $scope.init();
+        },
+        error: function() {
+          console.log('no login detected');
+        }
       }, $scope);
-
-      syncObj.employers.$loaded().then(function() {
-        $scope.init();
-      });
 
       syncObj.employers.$watch(function() {
         $scope.init();
