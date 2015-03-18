@@ -37,16 +37,15 @@
     var sync = function() {
       syncObj = Data.checkAuth({
         success: function() {
-          // $scope.init();
+          $scope.init();
+          syncObj.employers.$watch(function() {
+            $scope.init();
+          });
         },
         error: function() {
           console.log('no login detected');
         }
       }, $scope);
-
-      syncObj.employers.$watch(function() {
-        $scope.init();
-      });
     };
 
     sync();
