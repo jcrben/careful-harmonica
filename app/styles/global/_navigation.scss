@@ -24,7 +24,6 @@ header.header {
 				margin: 1em;
 			}
 			padding-bottom: 1em;
-			border-bottom: 1px solid gainsboro;
 			@include span-columns(12);
 		}
 	}

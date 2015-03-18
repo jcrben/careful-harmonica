@@ -6,6 +6,7 @@
 
 .app-container {
 	padding-bottom: 5em;
+	min-height: 80vh;
 	background: whitesmoke;
 }
 
@@ -17,8 +18,7 @@
 
 .view-title,
 .view-actions {
-	@include span-columns(10);
-	@include shift(1);
+	@include span-columns(12);
 }
 .view-title {
 	text-align: center;
@@ -34,6 +34,12 @@
 	border-radius: 1em;
 	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
 }
+
+md-checkbox,
+md-label,
+md-radio-group {
+	border: none;
+} 
 
 
 @import "navigation";
