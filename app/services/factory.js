@@ -42,10 +42,7 @@
       var getEmployers = function($scope) {
         var emp = ref.child('users').child(userID).child('employers');
         var empSync = $firebaseObject(emp);
-
-        emp.on('value', function() {
-          empSync.$bindTo($scope, 'data');
-        });
+        empSync.$bindTo($scope, 'employers');
 
         return empSync;
       };

@@ -19,7 +19,10 @@
       taskTypes.forEach(function(type) {
         $scope.tasks.push(Dictionary.taskDetails(type));
       });
-      console.log($scope.tasks);
+    };
+
+    $scope.completeTask = function(type) {
+      $scope.employers[$scope.employerName][type]++;
     };
 
     var sync = function() {

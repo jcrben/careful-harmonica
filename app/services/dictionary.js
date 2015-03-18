@@ -37,36 +37,43 @@
       var taskDetails = function(type) {
         var dictionary = {
           application: {
+            type: 'application',
             title: 'Gather ye\' papers!',
             description: 'Send an application to',
             score: 20
           },
           resume: {
+            type: 'resume',
             title: 'Who goes there?',
             description: 'Send a resume to',
             score: 10
           },
           researchNotes: {
+            type: 'researchNotes',
             title: 'Reconnaissance',
             description: 'Research',
             score: 5
           },
           emails: {
+            type: 'emails',
             title: 'Message in a bottle',
             description: 'Send an email to',
             score: 10
           },
           calls: {
+            type: 'calls',
             title: 'Ahoy, matey!',
             description: 'Make a call to',
             score: 25
           },
           interviews: {
+            type: 'interviews',
             title: 'All hands on deck!',
             description:  'Interview with',
             score: 50
           },
           followups: {
+            type: 'followups',
             title: 'Don\'t forget',
             description: 'Follow up with',
             score: 30
