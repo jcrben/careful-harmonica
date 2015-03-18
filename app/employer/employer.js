@@ -35,13 +35,14 @@
     };
 
     var sync = function() {
-      syncObj = Data.checkAuth(function() {
-        console.log('no login detected');
+      syncObj = Data.checkAuth({
+        success: function() {
+          // $scope.init();
+        },
+        error: function() {
+          console.log('no login detected');
+        }
       }, $scope);
-
-      syncObj.employers.$loaded().then(function() {
-        $scope.init();
-      });
 
       syncObj.employers.$watch(function() {
         $scope.init();

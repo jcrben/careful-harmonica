@@ -6,14 +6,6 @@
       var syncObj = {};
       $scope.user = {};
 
-      $scope.signup = function() {
-        Data.signup($scope.user.email, $scope.user.password);
-      };
-
-      $scope.signin = function() {
-        Data.signin($scope.user.email, $scope.user.password, sync);
-      };
-
       $scope.clickTask = function() {
 
       };
