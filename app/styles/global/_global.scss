@@ -16,6 +16,10 @@
 	right: 1em;
 }
 
+.land {
+	text-align: center;
+}
+
 .view-title,
 .view-actions {
 	@include span-columns(12);

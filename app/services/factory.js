@@ -112,13 +112,14 @@
               sync.employers = getEmployers($scope);
             }
           }
+          console.log('checkAuth', authData);
         });
 
         return sync;
       };
 
       var logout = function() {
-        $state.go('dashboard');
+        $state.go('land');
         ref.unauth();
       };
 

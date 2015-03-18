@@ -19,10 +19,12 @@ var app = angular
     'ui.router',
 
     'app.factory',
+    'app.auth',
     'app.dashboard',
     'app.employer',
     'app.onboard',
-    'app.user'
+    'app.user',
+    'app.land'
   ]);
 
 // ********************** Route Definitions **********************
@@ -97,6 +99,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     // ********************** Authentication **********************
+
+    .state('land', {
+      url: '/land',
+      views: {
+        '': {
+          templateUrl: 'auth/land.html',
+          controller: 'LandCtrl'
+        },
+        'signup@land': {
+          templateUrl: 'auth/signin.html',
+          controller: 'LandCtrl'
+        }
+      }
+    })
+
     .state('signup', {
       url: '/signup',
       views: {
@@ -146,8 +163,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-.run(function($location, Data) {
-  Data.checkAuth(function() {
-    $location.path('/');
+.run(function($location, Auth) {
+  Auth.checkAuth(function() {
+    $location.path('/land');
   });
 });
