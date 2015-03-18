@@ -14,7 +14,7 @@ module.exports = function(config) {
     basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine', 'mocha', 'chai'],
+    frameworks: ['jasmine', 'mocha', 'chai', 'sinon'],
 
     // list of files / patterns to load in the browser
     files: require('./include.conf.js')
@@ -25,6 +25,10 @@ module.exports = function(config) {
     // list of files / patterns to exclude
     exclude: [
     ],
+
+    // progress reporter: lists each test run and whether they pass/fail
+    // coverage reporter: creates coverage reports for every tested browser
+    // reporters: [/*'progress', 'coverage'*/],
 
     // web server port
     port: 8080,
@@ -47,6 +51,7 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-mocha',
       'karma-chai',
+      'karma-sinon'
     ],
 
     // Continuous Integration mode

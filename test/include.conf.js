@@ -14,5 +14,5 @@ module.exports = [
   'bower_components/angular-mocks/angular-mocks.js',
   // endbower
   'node_modules/requirejs/require.js',
-  'app/friend/*.js'
+  'app/services/*.js'
 ];
