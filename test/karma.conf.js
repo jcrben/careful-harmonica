@@ -46,7 +46,7 @@ module.exports = function(config) {
       'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-mocha',
-      'karma-chai'
+      'karma-chai',
     ],
 
     // Continuous Integration mode

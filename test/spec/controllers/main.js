@@ -1,7 +1,5 @@
 'use strict';
 
-// var chai = require('chai');
-// chai.use(require('chai-fs'));
 var assert = chai.assert;
 var should = chai.should();
 var expect = chai.expect;
@@ -11,6 +9,9 @@ describe('the friend module', function() {
   describe('the friend module\'s html templates', function () {
 
     it('should not have any <html> tags', function () {
+
+      //try using fs directly without using require statement
+
 
     });
 

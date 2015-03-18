@@ -13,5 +13,6 @@ module.exports = [
   'bower_components/angularfire/dist/angularfire.js',
   'bower_components/angular-mocks/angular-mocks.js',
   // endbower
+  'node_modules/requirejs/require.js',
   'app/friend/*.js'
 ];
