@@ -16,6 +16,23 @@
 	right: 1em;
 }
 
+.view-leaderboard {
+	max-width: 90%;
+	@media ($medium-screen-up) {
+		max-width: 650px;
+	}
+	margin: 0 auto;
+
+	table {
+		width: 100%;
+	}
+
+	h2 {
+		text-align: center;
+	}
+
+}
+
 .land {
 	text-align: center;
 }

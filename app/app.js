@@ -23,7 +23,7 @@ var app = angular
     'app.dashboard',
     'app.employer',
     'app.onboard',
-    'app.user',
+    'app.users',
     'app.land'
   ]);
 
@@ -64,16 +64,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     // ********************** User Profile **********************
-    .state('user', {
-      url: '/user/:user',
+    .state('users', {
+      url: '/users/',
       views: {
         '': {
-          templateUrl: 'user/user.html',
-          controller: 'UserCtrl'
-        },
-        'tasks@user': {
-          templateUrl: 'user/tasks.html',
-          controller: 'UserCtrl'
+          templateUrl: 'users/users.html',
+          controller: 'UsersCtrl'
         }
       }
     })
