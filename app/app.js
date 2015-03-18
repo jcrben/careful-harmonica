@@ -146,9 +146,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'onboard/dream.html',
     })
 
-    .state('onboard.upload', {
-      url: '/upload',
-      templateUrl: 'onboard/upload.html',
+    .state('onboard.assets', {
+      url: '/assets',
+      templateUrl: 'onboard/assets.html',
     })
 
     .state('onboard.goal', {
