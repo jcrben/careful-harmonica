@@ -47,6 +47,10 @@
         return empSync;
       };
 
+      var timeStamp = function() {
+        return Firebase.ServerValue.TIMESTAMP;
+      };
+
       var signup = function(email, password) {
 
         ref.createUser({
@@ -120,6 +124,7 @@
         getTasks: getTasks,
         addEmployer: addEmployer,
         getEmployers: getEmployers,
+        timeStamp: timeStamp,
         signup: signup,
         signin: signin,
         checkAuth: checkAuth,

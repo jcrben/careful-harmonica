@@ -13,6 +13,7 @@
     $scope.employerName = $stateParams.employer;
 
     $scope.init = function() {
+      $scope.tasks = [];
       $scope.employer = syncObj.employers[$scope.employerName];
       var taskTypes = Dictionary.findNextTask($scope.employer, 3);
 
@@ -22,7 +23,8 @@
     };
 
     $scope.completeTask = function(type) {
-      $scope.employers[$scope.employerName][type]++;
+      $scope.employers[$scope.employerName][type] = Data.timeStamp();
+      // $scope.init();
     };
 
     var sync = function() {
@@ -31,6 +33,10 @@
       }, $scope);
 
       syncObj.employers.$loaded().then(function() {
+        $scope.init();
+      });
+
+      syncObj.employers.$watch(function() {
         $scope.init();
       });
     };
