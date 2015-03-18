@@ -7,6 +7,6 @@
 
       $scope.enter = function() {
         Auth.OAuthSignin();
-      }
+      };
     }
 })();
