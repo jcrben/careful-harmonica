@@ -4,11 +4,12 @@
   .module('app.employer', [])
   .controller('EmployerCtrl', EmployerCtrl);
 
-  EmployerCtrl.$inject = ['$scope', 'Data', '$stateParams', '$filter', 'Dictionary'];
+  EmployerCtrl.$inject = ['$scope', 'Data', '$stateParams', '$filter', 'Dictionary', '$state'];
 
-  function EmployerCtrl($scope, Data, $stateParams, $filter, Dictionary) {
+  function EmployerCtrl($scope, Data, $stateParams, $filter, Dictionary, $state) {
     var syncObj = {};
     $scope.employer = {};
+    $scope.newPage = false;
     $scope.employerName = $stateParams.employer;
 
     $scope.init = function() {
@@ -25,6 +26,7 @@
       });
       achievementTypes.forEach(function(type, i) {
         $scope.achievements.push(Dictionary.taskDetails(type));
+        $scope.achievements[i].employer = $scope.employerName;
         $scope.achievements[i].date = $scope.employer[type];
       });
     };
@@ -48,7 +50,11 @@
       }, $scope);
     };
 
-    sync();
+    if ($scope.employerName !== 'new job') {
+      sync();
+    } else {
+      $scope.newPage = true;
+    }
 
     // TODO: Move new employer function to a separate module
     $scope.newEmployer = {};
@@ -56,6 +62,7 @@
     $scope.newEmployer.job = 'Job Description';
     $scope.newJob = function() {
       Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
+      $state.go('dashboard');
     };
   }
 })();

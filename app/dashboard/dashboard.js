@@ -3,8 +3,8 @@
 
   angular.module('app.dashboard', [])
     .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', function($scope, Data, Dictionary) {
-      var syncObj = {};
       $scope.user = {};
+      var syncObj = {};
 
       $scope.clickTask = function() {
 
@@ -22,8 +22,10 @@
             $scope.tasks.push(obj);
 
             type = Dictionary.findRecentTask(employer);
+            console.log(type);
             if (type.length > 0) {
               obj = Dictionary.taskDetails(type[0]);
+              obj.employer = employer.name;
               obj.date = employer[type[0]];
               $scope.achievements.push(obj);
             }

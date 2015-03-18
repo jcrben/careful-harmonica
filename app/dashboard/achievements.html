@@ -3,7 +3,7 @@
   <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
     <h5> {{ achievement.title }} </h5>
     <p>
-      {{ achievement.description }} {{ employer.name }} to earn
+      {{ achievement.description }} {{ achievement.employer }} to earn
       <b>{{ achievement.score }}</b>
       doubloons.
     </p>
