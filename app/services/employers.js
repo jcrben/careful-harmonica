@@ -52,9 +52,9 @@
 
         employer.name = newEmployer.name;
         employer.description = newEmployer.job;
-        employer.application = false;
-        employer.resume = false;
-        employer.researchNotes = false;
+        employer.application = 0;
+        employer.resume = 0;
+        employer.researchNotes = 0;
         employer.emails = 0;
         employer.calls = 0;
         employer.interviews = 0;

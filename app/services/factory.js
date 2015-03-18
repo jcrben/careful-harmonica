@@ -42,12 +42,13 @@
       var getEmployers = function($scope) {
         var emp = ref.child('users').child(userID).child('employers');
         var empSync = $firebaseObject(emp);
-
-        emp.on('value', function() {
-          empSync.$bindTo($scope, 'data');
-        });
+        empSync.$bindTo($scope, 'employers');
 
         return empSync;
+      };
+
+      var timeStamp = function() {
+        return Firebase.ServerValue.TIMESTAMP;
       };
 
       var signup = function(email, password) {
@@ -123,6 +124,7 @@
         getTasks: getTasks,
         addEmployer: addEmployer,
         getEmployers: getEmployers,
+        timeStamp: timeStamp,
         signup: signup,
         signin: signin,
         checkAuth: checkAuth,

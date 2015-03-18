@@ -6,7 +6,8 @@
   <div class="view-actions">
 
     <h4> Current Missions </h4>
-    <div ng-model="employer" class="public-to-dos"  ng-repeat="task in tasks">
+    <div ng-model="employer" class="public-to-dos"
+      ng-repeat="task in tasks" ng-click="completeTask(task.type)">
       <h5> {{ task.title }} </h5>
       <p>
         {{ task.description }} {{ employer.name }} to earn
@@ -22,6 +23,9 @@
         {{ achievement.description }} {{ employer.name }} to earn
         <b>{{ achievement.score }}</b>
         doubloons.
+      </p>
+      <p>
+        Completed on {{ achievement.date }}
       </p>
     </div>
   </div>
