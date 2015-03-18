@@ -7,33 +7,6 @@
       var ref = new Firebase(refURL);
       var userID = null;
 
-      var getTasks = function(taskType, num) {
-        var getTask;
-        var results = [];
-        num = num || 1;
-
-        if (taskType === 'current') {
-          getTask = Dictionary.findNextTask;
-        } else {
-          getTask = Dictionary.findRecentTask;
-        }
-
-        for (var employer in Employers.data) {
-          var task = {};
-          var job = Employers.data[employer];
-
-          task.employer = employer;
-          task.type = getTask(job, num)[0];
-          task.title = Dictionary.taskTitle(task.type);
-          task.description = Dictionary.taskDescription(task.type);
-          task.score = Dictionary.taskScore(task.type);
-
-          results.push(task);
-        }
-
-        return results;
-      };
-
       var addEmployer = function(name, job) {
         var newEmployer = {name: name, job: job};
         ref.child('users').child(userID).child('employers').update(Employers.addNew(newEmployer));
@@ -53,6 +26,24 @@
         scoreSync.$bindTo($scope, 'score');
 
         return scoreSync;
+      };
+
+      var checkAuth = function(cb, $scope) {
+        var sync = {};
+
+        ref.onAuth(function(authData) {
+          if (authData === null) {
+            cb();
+          } else {
+            userID = authData.uid;
+            if ($scope) {
+              sync.employers = getEmployers($scope);
+              sync.score = getScore($scope);
+            }
+          }
+        });
+
+        return sync;
       };
 
       var timeStamp = function() {
@@ -109,32 +100,12 @@
         });
       };
 
-      var checkAuth = function(cb, $scope) {
-        var sync = {};
-
-        ref.onAuth(function(authData) {
-          if (authData === null) {
-            cb();
-          } else {
-            userID = authData.uid;
-            if ($scope) {
-              sync.employers = getEmployers($scope);
-              sync.score = getScore($scope);
-            }
-          }
-          console.log('checkAuth', authData);
-        });
-
-        return sync;
-      };
-
       var logout = function() {
         $state.go('land');
         ref.unauth();
       };
 
       return {
-        getTasks: getTasks,
         addEmployer: addEmployer,
         getEmployers: getEmployers,
         timeStamp: timeStamp,
