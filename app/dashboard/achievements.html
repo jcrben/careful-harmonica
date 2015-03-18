@@ -1,11 +1,14 @@
 <div class="achievements">
-  <h2>Achievements</h2>
-  <div ng-repeat="achievement in achievements" class="achievement">
-    <h4> {{ achievement.title }} </h4>
+  <h4> Achievements </h4>
+  <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
+    <h5> {{ achievement.title }} </h5>
     <p>
-      {{ achievement.description }} {{ achievement.employer }} to earn
+      {{ achievement.description }} {{ employer.name }} to earn
       <b>{{ achievement.score }}</b>
       doubloons.
+    </p>
+    <p>
+      Completed on {{ achievement.date }}
     </p>
   </div>
 </div>

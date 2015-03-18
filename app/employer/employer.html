@@ -4,30 +4,8 @@
   </div>
 
   <div class="view-actions">
-
-    <h4> Current Missions </h4>
-    <div ng-model="employer" class="public-to-dos"
-      ng-repeat="task in tasks" ng-click="completeTask(task)">
-      <h5> {{ task.title }} </h5>
-      <p>
-        {{ task.description }} {{ employer.name }} to earn
-        <b>{{ task.score }}</b>
-        doubloons.
-      </p>
-    </div>
-
-    <h4> Achievements </h4>
-    <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
-      <h5> {{ achievement.title }} </h5>
-      <p>
-        {{ achievement.description }} {{ employer.name }} to earn
-        <b>{{ achievement.score }}</b>
-        doubloons.
-      </p>
-      <p>
-        Completed on {{ achievement.date }}
-      </p>
-    </div>
+    <div ui-view="tasks"></div>
+  	<div ui-view="achievements"></div>
   </div>
 </div>
 <br><div class="view-actions" ui-view="new"></div>

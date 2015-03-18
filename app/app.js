@@ -92,6 +92,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: 'employer/employer.html',
           controller: 'EmployerCtrl'
         },
+        'tasks@employer': {
+          templateUrl: 'dashboard/tasks.html'
+        },
+        'achievements@employer': {
+          templateUrl: 'dashboard/achievements.html'
+        },
         'new@employer': {
           templateUrl: 'employer/new.html'
         }

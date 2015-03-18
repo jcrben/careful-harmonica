@@ -10,6 +10,7 @@
 
       var findNextTask = function(job, num) {
         var results = [];
+        num = num || 1;
 
         for (var i = 0; i < priorities.length; i++) {
           if (!job[priorities[i]] && num) {
@@ -18,11 +19,16 @@
           }
         }
 
-        return results;
+        if (results.length <= 1) {
+          return results.concat('emails');
+        } else {
+          return results;
+        }
       };
 
       var findRecentTask = function(job, num) {
         var results = [];
+        num = num || 1;
 
         for (var i = priorities.length; i >= 0; i--) {
           if (job[priorities[i]] && num) {

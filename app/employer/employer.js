@@ -19,8 +19,9 @@
       var taskTypes = Dictionary.findNextTask($scope.employer, 3);
       var achievementTypes = Dictionary.findRecentTask($scope.employer, 3);
 
-      taskTypes.forEach(function(type) {
+      taskTypes.forEach(function(type, i) {
         $scope.tasks.push(Dictionary.taskDetails(type));
+        $scope.tasks[i].employer = $scope.employerName;
       });
       achievementTypes.forEach(function(type, i) {
         $scope.achievements.push(Dictionary.taskDetails(type));
@@ -28,7 +29,7 @@
       });
     };
 
-    $scope.completeTask = function(task) {
+    $scope.clickTask = function(task) {
       $scope.employers[$scope.employerName][task.type] = Data.timeStamp();
       $scope.score.$value += task.score;
     };
