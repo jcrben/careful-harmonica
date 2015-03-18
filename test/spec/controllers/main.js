@@ -7,13 +7,14 @@ var expect = chai.expect;
 
 describe('the Dictionary factory', function() {
 
+  var Dictionary;
+  beforeEach(module('app.dictionary'));
+  beforeEach(inject(function (_Dictionary_) {
+    Dictionary = _Dictionary_;
+  }));
+
   describe('the Dictionary\'s default functions', function() {
     
-    var Dictionary;
-    beforeEach(module('app.dictionary'));
-    beforeEach(inject(function (_Dictionary_) {
-      Dictionary = _Dictionary_;
-    }));
 
     it('should have a findNextTask function', function() {
       expect(Dictionary).to.have.property('findNextTask');
@@ -41,66 +42,76 @@ describe('the Dictionary factory', function() {
 
   });
 
-  describe('', function(){})
+  describe('each Dictionary function', function() {
+    
+    describe('findNextTask', function() {
+
+      it('should return an array of job priorities', function() {
+  
+      });
+
+      it('should not return priorities that are that are required for the job', function() {
+
+      });
+
+      it('should only return the number of next tasks requested', function() {
+
+      });
+
+    });
+
+    describe('findRecentTask', function() {
+
+      it('should return an array of job priorities', function() {
+
+      });
+
+      it('should return only recent priorities that are required for the job', function() {
+
+      });
+
+      it('should only return the number of recent tasks requested', function() {
+
+      });
+
+    });
+
+    describe('taskDetails', function() {
+
+      it('should return an object', function() {
+
+      });
+
+      it('should return the right title', function() {
+
+      });
+
+    });
+
+    describe('taskTitle', function() {
+
+      it('should return a string', function() {
+
+      });
+
+    });
+
+    describe('taskDescription', function() {
+
+      it('should return a string', function() {
+
+      });
+
+    });
+
+    describe('taskScore', function() {
+
+      it('should return an integer', function() {
+
+      });
+
+    });
+
+  });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-// describe('the friend module', function() {
-
-//   describe('the friend module\'s html templates', function () {
-
-//     it('should not have any <html> tags', function () {
-
-//       //try using fs directly without using require statement
-
-
-//     });
-
-//     // it('should have a section for badges', function () {
-
-//     // });
-
-//     // it('should have a section for to-do\'s', function () {
-
-//     // });
-
-//     // it('should have a section for recent activities', function () {
-
-//     // });
-
-//   });
-
-
-
-
-// });
-
-// describe('Controller: OnboardCtrl', function () {
-
-//   // TODO: Implement controller tests 
-  
-//   // load the controller's module
-//   // beforeEach(module('carefulHarmonicaApp'));
-
-//   // var OnboardCtrl,
-//   //   scope;
-
-//   // Initialize the controller and a mock scope
-//   // beforeEach(inject(function ($controller, $rootScope) {
-//   //   scope = $rootScope.$new();
-//   //   OnboardCtrl = $controller('OnboardCtrl', {
-//   //     $scope: scope
-//   //   });
-//   // }));
-  
-// });
