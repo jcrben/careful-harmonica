@@ -65,7 +65,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // ********************** User Profile **********************
     .state('user', {
-      url: '/user',
+      url: '/user/:user',
       views: {
         '': {
           templateUrl: 'user/user.html',
@@ -163,7 +163,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-.run(function($location, Auth) {
+.run(function($location, Auth, $state) {
   Auth.checkAuth(function() {
     $location.path('/land');
   });

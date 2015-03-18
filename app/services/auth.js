@@ -17,8 +17,12 @@
               var isNew = !snapshot.child('users').child(authData.uid).exists();
               console.log(isNew);
               if (isNew) {
+                  var userProfile = authData.cachedUserProfile;
                   var newUser = {
-                  email: authData.github.cachedUserProfile.email,
+                  name: authData.displayName,
+                  email: userProfile.email,
+                  repos: userProfile.public_repos,
+                  followers: userProfile.followers,
                   signupDate: Firebase.ServerValue.TIMESTAMP,
                   lastLogin: Firebase.ServerValue.TIMESTAMP,
                   score: 0,
@@ -26,7 +30,7 @@
                 };
                 ref.child('users').child(authData.uid).set(newUser);
                 $state.go('onboard.dream');
-              } else {
+              } else if (!isNew) {
                 $state.go('dashboard');
                 ref.child('users').child(authData.uid).update({
                   lastLogin: Firebase.ServerValue.TIMESTAMP
