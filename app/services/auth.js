@@ -70,8 +70,4 @@
         checkAuth: checkAuth
       };
   });
-<<<<<<< HEAD
 })();
-=======
-})();
->>>>>>> (feat) Update auth and landing files
