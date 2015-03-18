@@ -74,23 +74,29 @@ describe('the Dictionary factory', function() {
       });
 
       it('should return only recent priorities that are required for the job', function() {
-        var result = Dictionary.findRecentTask({researchNotes:true, resume:true}, 2);
+        var result = Dictionary.findRecentTask({calls:true, resume:true}, 2);
+        expect(result).to.not.include('researchNotes');
       });
 
       it('should only return the number of recent tasks requested', function() {
-
+        var result = Dictionary.findRecentTask({calls:true, resume:true, followups:true}, 2);
+        expect(result).to.have.length(2);
       });
 
     });
 
     describe('taskDetails', function() {
 
-      it('should return an object', function() {
 
+      
+      it('should return an object', function() {
+        var result = Dictionary.taskDetails('followups')
+        expect(result).to.be.an('object');
       });
 
       it('should return the right title', function() {
-
+        var result = Dictionary.taskDetails('followups')
+        expect(result.title).to.equal('Don\'t forget');
       });
 
     });
@@ -98,7 +104,8 @@ describe('the Dictionary factory', function() {
     describe('taskTitle', function() {
 
       it('should return a string', function() {
-
+        var result = Dictionary.taskTitle('resume');
+        expect(result).to.be.a.string;
       });
 
     });
@@ -106,7 +113,8 @@ describe('the Dictionary factory', function() {
     describe('taskDescription', function() {
 
       it('should return a string', function() {
-
+        var result = Dictionary.taskDescription('resume');
+        expect(result).to.be.a.string;
       });
 
     });
@@ -114,7 +122,8 @@ describe('the Dictionary factory', function() {
     describe('taskScore', function() {
 
       it('should return an integer', function() {
-
+        var result = Dictionary.taskScore('resume');
+        expect(result).to.be.a.number;
       });
 
     });
