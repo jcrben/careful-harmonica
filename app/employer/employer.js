@@ -9,16 +9,22 @@
   function EmployerCtrl($scope, Data, $stateParams, $filter, Dictionary) {
     var syncObj = {};
     $scope.employer = {};
-    $scope.tasks = [];
     $scope.employerName = $stateParams.employer;
 
     $scope.init = function() {
       $scope.tasks = [];
+      $scope.achievements = [];
       $scope.employer = syncObj.employers[$scope.employerName];
+
       var taskTypes = Dictionary.findNextTask($scope.employer, 3);
+      var achievementTypes = Dictionary.findRecentTask($scope.employer, 3);
 
       taskTypes.forEach(function(type) {
         $scope.tasks.push(Dictionary.taskDetails(type));
+      });
+      achievementTypes.forEach(function(type, i) {
+        $scope.achievements.push(Dictionary.taskDetails(type));
+        $scope.achievements[i].date = $scope.employer[type];
       });
     };
 

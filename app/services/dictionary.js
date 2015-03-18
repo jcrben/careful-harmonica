@@ -5,7 +5,7 @@
     .factory('Dictionary', function() {
       var priorities = [
         'researchNotes', 'resume', 'application',
-        'emails', 'calls', 'followups'
+        'emails', 'calls', 'interviews', 'followups'
       ];
 
       var findNextTask = function(job, num) {
