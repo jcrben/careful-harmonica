@@ -6,4 +6,10 @@
 
 .onboard {
 	@include outer-container;
+	.steps-nav {
+		margin: 2em 0 0 0;
+	}
+	.next {
+		float: right;
+	}
 }
