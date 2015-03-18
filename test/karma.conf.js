@@ -28,7 +28,19 @@ module.exports = function(config) {
 
     // progress reporter: lists each test run and whether they pass/fail
     // coverage reporter: creates coverage reports for every tested browser
-    // reporters: [/*'progress', 'coverage'*/],
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      // Source files you want to generate coverage reports for
+      // This should not include tests or libraries
+      // These files will be instrumented by Istanbul
+      'app/services/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 8080,
@@ -51,7 +63,8 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-mocha',
       'karma-chai',
-      'karma-sinon'
+      'karma-sinon',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode

@@ -13,7 +13,7 @@ describe('the Dictionary factory', function() {
     Dictionary = _Dictionary_;
   }));
 
-  describe('the Dictionary\'s default functions', function() {
+  describe('object', function() {
     
 
     it('should have a findNextTask function', function() {
@@ -24,25 +24,13 @@ describe('the Dictionary factory', function() {
       expect(Dictionary).to.have.property('findRecentTask');
     });
 
-    it('should have a taskTitle function', function() {
-      expect(Dictionary).to.have.property('taskTitle');
-    });
-
-    it('should have a taskDescription function', function() {
-      expect(Dictionary).to.have.property('taskDescription');
-    });
-
-    it('should have a taskScore function', function() {
-      expect(Dictionary).to.have.property('taskScore');
-    });
-
     it('should have a taskDetails function', function() {
       expect(Dictionary).to.have.property('taskDetails');
     });
 
   });
 
-  describe('each Dictionary function', function() {
+  describe('function', function() {
     
     describe('findNextTask', function() {
 
@@ -86,8 +74,6 @@ describe('the Dictionary factory', function() {
     });
 
     describe('taskDetails', function() {
-
-
       
       it('should return an object', function() {
         var result = Dictionary.taskDetails('followups')
@@ -97,33 +83,6 @@ describe('the Dictionary factory', function() {
       it('should return the right title', function() {
         var result = Dictionary.taskDetails('followups')
         expect(result.title).to.equal('Don\'t forget');
-      });
-
-    });
-
-    describe('taskTitle', function() {
-
-      it('should return a string', function() {
-        var result = Dictionary.taskTitle('resume');
-        expect(result).to.be.a.string;
-      });
-
-    });
-
-    describe('taskDescription', function() {
-
-      it('should return a string', function() {
-        var result = Dictionary.taskDescription('resume');
-        expect(result).to.be.a.string;
-      });
-
-    });
-
-    describe('taskScore', function() {
-
-      it('should return an integer', function() {
-        var result = Dictionary.taskScore('resume');
-        expect(result).to.be.a.number;
       });
 
     });
