@@ -28,9 +28,9 @@
       });
     };
 
-    $scope.completeTask = function(type) {
-      $scope.employers[$scope.employerName][type] = Data.timeStamp();
-      // $scope.init();
+    $scope.completeTask = function(task) {
+      $scope.employers[$scope.employerName][task.type] = Data.timeStamp();
+      $scope.score.$value += task.score;
     };
 
     var sync = function() {

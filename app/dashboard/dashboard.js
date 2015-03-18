@@ -19,7 +19,6 @@
           console.log('no login detected');
         }, $scope);
 
-        $scope.employers = syncObj.employers;
         $scope.tasks = Data.getTasks('current');
         $scope.achievements = Data.getTasks('completed');
       };

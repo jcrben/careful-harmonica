@@ -47,6 +47,14 @@
         return empSync;
       };
 
+      var getScore = function($scope) {
+        var score = ref.child('users').child(userID).child('score');
+        var scoreSync = $firebaseObject(score);
+        scoreSync.$bindTo($scope, 'score');
+
+        return scoreSync;
+      };
+
       var timeStamp = function() {
         return Firebase.ServerValue.TIMESTAMP;
       };
@@ -73,6 +81,7 @@
                   email: email,
                   signupDate: Firebase.ServerValue.TIMESTAMP,
                   lastLogin: Firebase.ServerValue.TIMESTAMP,
+                  score: 0,
                   employers: Employers.data
                 };
                 ref.child('users').child(userData.uid).set(newUser);
@@ -110,6 +119,7 @@
             userID = authData.uid;
             if ($scope) {
               sync.employers = getEmployers($scope);
+              sync.score = getScore($scope);
             }
           }
           console.log('checkAuth', authData);

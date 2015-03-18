@@ -7,7 +7,7 @@
 
     <h4> Current Missions </h4>
     <div ng-model="employer" class="public-to-dos"
-      ng-repeat="task in tasks" ng-click="completeTask(task.type)">
+      ng-repeat="task in tasks" ng-click="completeTask(task)">
       <h5> {{ task.title }} </h5>
       <p>
         {{ task.description }} {{ employer.name }} to earn
