@@ -57,12 +57,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         'social@dashboard': {
           templateUrl: 'dashboard/social.html',
         },
-        'signup@dashboard': {
-          templateUrl: 'auth/signup.html'
-        },
-        'signin@dashboard': {
-          templateUrl: 'auth/signin.html'
-        },
         'employers@dashboard': {
           templateUrl: 'dashboard/employers.html'
         }
