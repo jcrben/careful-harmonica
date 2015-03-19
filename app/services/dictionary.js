@@ -4,7 +4,7 @@
   angular.module('app.dictionary', [])
     .factory('Dictionary', function() {
       var priorities = [
-        'researchNotes', 'resume', 'application',
+        'new', 'researchNotes', 'resume', 'application',
         'emails', 'calls', 'interviews', 'followups'
       ];
 
@@ -42,6 +42,12 @@
 
       var taskDetails = function(type) {
         var dictionary = {
+          new: {
+            type: 'new',
+            title: 'Shipshape',
+            description: 'Add',
+            score: 5
+          },
           application: {
             type: 'application',
             title: 'Gather ye\' papers!',
