@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject) {
+    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject, $rootScope) {
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var ref = new Firebase(refURL);
       var userID = null;
@@ -36,6 +36,8 @@
             cb.error();
           } else {
             userID = authData.uid;
+            $rootScope.isAuth = true;
+            console.log($rootScope);
             if ($scope) {
               sync.employers = getEmployers($scope);
               sync.score = getScore($scope);

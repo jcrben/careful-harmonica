@@ -8,9 +8,10 @@
  * Controller of the carefulHarmonicaApp
  */
 angular.module('carefulHarmonicaApp')
-  .controller('MainCtrl', function ($scope, Data, Auth) {
+  .controller('MainCtrl', function ($scope, $rootScope, Data, Auth) {
 
     $scope.logout = function() {
       Auth.logout();
     };
+
  });
