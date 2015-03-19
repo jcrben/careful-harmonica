@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.auth', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Auth', function(Dictionary, Employers, $state, $firebaseObject, Data) {
+    .factory('Auth', function(Dictionary, Employers, $state, $firebaseObject, Data, $rootScope) {
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var ref = new Firebase(refURL);
       var userID = null;
@@ -39,6 +39,7 @@
 
       var logout = function() {
         $state.go('land');
+        $rootScope.isAuth = false;
         ref.unauth();
       };
 
@@ -54,7 +55,6 @@
               sync.employers = Data.getEmployers($scope);
             }
           }
-          console.log('checkAuth', authData);
         });
 
         return sync;

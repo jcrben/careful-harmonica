@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Lobster|Roboto+Slab:300,700|Roboto:700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster|Roboto+Slab:300,700|Roboto:700,700italic' rel='stylesheet' type='text/css'>
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -19,7 +19,7 @@
   <body ng-app="carefulHarmonicaApp" ng-controller="MainCtrl">
 
     <header class="header">
-    <div class="logout">
+    <div ng-show="isAuth" class="logout">
       <md-button class="md-raised md-primary" ng-click="logout()">Log Out</md-button>
     </div>
       <nav class="navbar navbar-default" role="navigation">
