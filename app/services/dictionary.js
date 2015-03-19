@@ -89,10 +89,33 @@
         return dictionary[type];
       };
 
+      var getRank = function(score) {
+        var ranks = ['Swabbie', 'Rigger', 'Sailor', 'Boatswain', 
+        'Quartermaster', 'First Mate', 'Captain'];
+        var result;
+        var baseScore = 30;
+        var incrementer = 50;
+
+        for (var i = 0; i < ranks.length-1; i++) {
+          // if (score === 0) {debugger;}
+          if (score <= baseScore) {
+            result = ranks[i];
+            break;
+          } else if (i === ranks.length-1 && score > baseScore) {
+            result = 'Captain';
+          } else {
+            incrementer += 25;
+            baseScore += incrementer;
+          }
+        }
+        return result;
+      };
+
       return {
         findNextTask: findNextTask,
         findRecentTask: findRecentTask,
-        taskDetails: taskDetails
+        taskDetails: taskDetails,
+        getRank: getRank
       };
     });
 

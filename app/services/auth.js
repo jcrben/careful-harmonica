@@ -17,13 +17,17 @@
               var isNew = !snapshot.child('users').child(authData.uid).exists();
               console.log(isNew);
               if (isNew) {
+                  var profile = authData.github;
                   var newUser = {
-                  email: authData.github.cachedUserProfile.email,
-                  signupDate: Firebase.ServerValue.TIMESTAMP,
-                  lastLogin: Firebase.ServerValue.TIMESTAMP,
-                  score: 0,
-                  employers: Employers.data
-                };
+                    name: profile.displayName,
+                    email: profile.email,
+                    repos: profile.cachedUserProfile.public_repos,
+                    followers: profile.cachedUserProfile.followers,
+                    signupDate: Firebase.ServerValue.TIMESTAMP,
+                    lastLogin: Firebase.ServerValue.TIMESTAMP,
+                    score: 0,
+                    employers: Employers.data
+                  };
                 ref.child('users').child(authData.uid).set(newUser);
                 $state.go('onboard.dream');
               } else {

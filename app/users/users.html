@@ -1,0 +1,20 @@
+<div class="view-leaderboard">
+  <h2>Leaderboard</h2>
+  <table>
+  <tr class="leaderboard-headers">
+    <th>Name</th>
+    <th>Title</th>
+    <th>Score</th>
+    <th>Badges</th>
+    <th>Longest Streak</th>
+    <th>Public Github repos</th>
+  </tr>
+  <tr ng-model="users" ng-repeat="user in users">
+    <td>{{user.name}}</td>
+    <td>{{user.rank}}</td>
+    <td>{{user.score}}</td>
+    <td>Fearless, Wanderer</td>
+    <td>Placeholder</td>
+    <td>{{user.repos}}</td>
+  </table>
+</div>
