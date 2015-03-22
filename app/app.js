@@ -139,7 +139,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('onboard.dream', {
       url: '/dream',
-      templateUrl: 'onboard/dream.html',
+      templateUrl: 'onboard/dream.html'
     })
 
     .state('onboard.assets', {
