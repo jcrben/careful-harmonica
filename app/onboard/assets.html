@@ -1,4 +1,4 @@
-<section class="onboard-assets">
+<section class="onboard-assets" ng-init="addFileUploadListener()">
 	<div class="onboard-description">
 		<h4>Great! Now let's get organized.</h4>
 		<p>
@@ -7,12 +7,12 @@
 	</div>
 	<div class="onboard-action">
 		<h4>Add your résumé</h4>
-		<div class="add-resume">
-		<input class="resume-upload" type="file" name="resume" id="fileUpload">
+		<div class="add-file">
+		<input class="resume-upload" type="file" name="resume" id="resumeUpload">
 		<p class="caption">Dont' have one yet? That's okay!</p>
 		</div>
 	</div>
-	<div class="onboard-action">
+	<div class="add-file">
 		<h4>Add a cover letter</h4>
 		<input type="file" name="coverletter">
 		<div class="add-coverletter"></div>

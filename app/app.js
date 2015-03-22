@@ -28,7 +28,8 @@ var app = angular
   ]);
 
 // ********************** Route Definitions **********************
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -140,11 +141,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('onboard.dream', {
       url: '/dream',
       templateUrl: 'onboard/dream.html'
+
     })
 
     .state('onboard.assets', {
       url: '/assets',
       templateUrl: 'onboard/assets.html',
+      resolve: {Data: 'Data'}
     })
 
     .state('onboard.goal', {
@@ -157,10 +160,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'onboard/install.html',
     });
 
-})
+}])
 
-.run(function($location, Auth) {
+.run(function($location, Auth, $rootScope) {
   Auth.checkAuth(function() {
     $location.path('/land');
   });
+$rootScope.$on('$stateChangeError', 
+  function(event, toState, toParams, fromState, fromParams, error){ 
+    console.log(error);
+  });
+
 });
