@@ -47,20 +47,15 @@ md-toolbar {
 	md-toolbar {
 		background: $accent-red;
 	}
+
+	.icon {
+		padding-left: 5px;
+	}
 }
 
 .achievements {
 	md-toolbar {
 		background: $light-blue;
-	}
-
-	.achievement {
-		@include transition(300ms);
-
-		&:hover {
-			cursor: pointer;
-			background: gainsboro;
-		}
 	}
 }
 
