@@ -15,5 +15,8 @@ module.exports = [
   'bower_components/angular-mocks/angular-mocks.js',
   // endbower
   'node_modules/requirejs/require.js',
-  'app/services/*.js'
+  'app/services/*.js',
+  'app/onboard/*.js',
+  'app/employer/*.js',
+  'app/users/*.js'
 ];
