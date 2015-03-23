@@ -1,5 +1,20 @@
 # Contributing
 
+## Architecture 
+
+The app's folder structure is organized by functionality with views and controllers together. The dashboard is the main app state and uses multiple ui-router parallel views while the onboard section uses several nested views. The backend relies entirely on both the Firebase API (https://www.firebase.com/docs/web/api/) and Angularfire (https://www.firebase.com/docs/web/libraries/angular/api.html) which allows for "three-way" data-binding using $bindTo. Firebase queries are asynchronous and sometimes return promises (e.g., $loaded). Much of the binding to $scope for the dashboard.js appears in the factory.js through the checkAuth function.
+
+Firebase is schemaless and flexible but the data's structure is centered around a user which has basic profile data such as names, scores, etc and an employers array.
+  - /user/...
+  - /user/employers/...
+  - /user/employers/employer1/employerdata/...
+  - /user/employers/employer2/employerdata
+
+
+## Improvements, bugs, etc
+
+Please see the issues page, which is hooked into waffle.io for a high-level overview.
+
 ## General Workflow
 
 1. Fork the repo
