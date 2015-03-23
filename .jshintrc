@@ -21,6 +21,7 @@
     "angular": true
   },
   "predef": [
-    "Firebase"
+    "Firebase",
+    "moment"
   ]
 }
