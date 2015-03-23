@@ -19,20 +19,18 @@
   <body ng-app="carefulHarmonicaApp" ng-controller="MainCtrl">
 
     <header class="header">
-    <div ng-show="isAuth" class="logout">
-      <md-button class="md-raised md-primary" ng-click="logout()">Log Out</md-button>
-    </div>
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
-          <img src="/images/logo.svg" alt="Jobby Roger">
-          <h1 class="logo">
-            <a class="navbar-brand" href="#/">Jobby Roger</a>
-          </h1>
+          <div class="logo">
+            <img src="/images/logo.svg" alt="Jobby Roger">
+            <h1>
+              <a class="navbar-brand" href="#/">Jobby Roger</a>
+            </h1>
+          </div>
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">Dashboard</a></li>
-          <li><a ui-sref="users">Leaderboard</a></li>
-        </ul>
+      <div ng-show="isAuth" class="logout">
+        <md-button class="md-raised md-primary" ng-click="logout()">Log Out</md-button>
+      </div>
       </nav>
     </header>
 

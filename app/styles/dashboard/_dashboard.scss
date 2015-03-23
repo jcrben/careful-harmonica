@@ -5,5 +5,58 @@
  */
 
 .dashboard {
+	padding-top: 1em;
 	@include outer-container;
+	.employers {
+		position: relative;
+	}
+	.add-job {
+		position: absolute;
+		bottom: -1.75em;
+		right: 1em;
+	}
+}
+
+.score {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 0.8em;
+	padding-bottom: 2em;
+	padding-top: 3em;
+	text-align: center;
+	background: $light-blue;
+	color: white;
+	z-index: 10;
+}
+
+md-card {
+	margin: 1em;
+}
+
+md-toolbar {
+	font-size: 0.95em;
+	h1, h2, h3, h4 {
+		margin: 0;
+	}
+	padding: 0.5em;
+}
+
+.employers {
+	md-toolbar {
+		background: $accent-red;
+	}
+}
+
+.achievements {
+	md-toolbar {
+		background: $light-blue;
+	}
+}
+
+.to-do {
+	md-toolbar {
+		background: $navy;
+	}
 }

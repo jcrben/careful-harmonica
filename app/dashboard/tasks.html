@@ -1,12 +1,16 @@
-<div class="tasks">
-  <h4> Current Missions </h4>
-  <div ng-model="employer" class="public-to-dos"
-    ng-repeat="task in tasks" ng-click="clickTask(task)">
-    <h5> {{ task.title }} </h5>
-    <p>
-      {{ task.description }} {{ task.employer }} to earn
-      <b>{{ task.score }}</b>
-      doubloons.
-    </p>
-  </div>
-</div>
+<md-card class="to-do">
+  <md-toolbar md-scroll-shrink>
+    <h4>Current Missions</h4>
+  </md-toolbar>
+  <md-card-content>
+    <div ng-model="employer" class="public-to-dos"
+      ng-repeat="task in tasks" ng-click="clickTask(task)">
+      <h5> {{ task.title }} </h5>
+      <p>
+        {{ task.description }} {{ task.employer }} to earn
+        <b>{{ task.score }}</b>
+        doubloons.
+      </p>
+    </div>
+  </md-card-content>
+</md-card>

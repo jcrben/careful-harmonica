@@ -1,9 +1,25 @@
-<div class="employers">
-  <h2>Employers</h2>
-  <div ng-repeat="employer in employers" class="employer" ui-sref="employer({employer: employer.name})">
-    <h4> {{ employer.name }} </h4>
-    <p> {{ employer.description }} </p>
-  </div>
-</div>
+<md-card class="employers">
+	<md-toolbar md-scroll-shrink>
+		<h4>Employers</h4>
+	</md-toolbar>
+  <md-card-content>
+  	<md-list>
+			<md-item ng-repeat="employer in employers" class="employer" ui-sref="employer({employer: employer.name})">
+			  <md-item-content>
+			  	<div class="md-tile-left">
+			  		<h6>{{ employer.name }}</h6>
+			  	</div>
+			  	<div class="md-tile-content">
+			  		<p>{{ employer.description }}</p>
+			  	</div>
+			  </md-item-content>
+			</md-item>
+  	</md-list>
+  </md-card-content>
+  <md-button ui-sref="employer" class="add-job md-fab md-primary" aria-label="Add a Job">
+      <md-tooltip>Add a Job</md-tooltip>
+      <md-icon ui-sref="" md-svg-src="/images/cross.svg"></md-icon>
+  </md-button>
+</md-card>
 
 <!-- ng-click="showEmployer(employer.name)" -->
