@@ -1,14 +1,13 @@
-<div class="dashboard">
-  <div class="view-title">
-    <h2>Dashboard</h2>
-    <a ng-href="{{'data:application/pdf;base64,'+resume.$value}}" download>Resume</a>
-  </div>
-  <div class="view-actions">
-    <div ui-view="score"></div>
-  </div>
-  <div class="view-actions">
+<div class="dashboard-container" layout="row">
+  <div class="dashboard" layout="column" flex="60">
     <div ui-view="tasks"></div>
     <div ui-view="achievements"></div>
+  </div>
+  <div class="dashboard" layout="column" flex="40">
     <div ui-view="employers"></div>
   </div>
+</div>
+<div class="score">
+  <div ui-view="score"></div>
+  <a ng-href="{{'data:application/pdf;base64,'+resume.$value}}" download>Resume</a>
 </div>

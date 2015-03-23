@@ -1,14 +1,18 @@
-<div class="achievements">
-  <h4> Achievements </h4>
-  <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
-    <h5> {{ achievement.title }} </h5>
-    <p>
-      {{ achievement.description }} {{ achievement.employer }} to earn
-      <b>{{ achievement.score }}</b>
-      doubloons.
-    </p>
-    <p>
-      Completed on {{ achievement.date }}
-    </p>
-  </div>
-</div>
+<md-card class="achievements">
+  <md-toolbar md-scroll-shrink>
+    <h4>Achievements</h4>
+  </md-toolbar>
+  <md-card-content>
+    <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
+      <h5> {{ achievement.title }} </h5>
+      <p>
+        {{ achievement.description }} {{ achievement.employer }} to earn
+        <strong>{{ achievement.score }}</strong>
+        doubloons.
+      </p>
+      <p>
+        Completed on {{ achievement.date }}
+      </p>
+    </div>
+  </md-card-content>
+</md-card>

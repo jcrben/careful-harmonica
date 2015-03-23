@@ -60,7 +60,11 @@ md-checkbox,
 md-label,
 md-radio-group {
 	border: none;
-} 
+}
+
+md-card {
+	background-color: white;
+}
 
 
 @import "navigation";
