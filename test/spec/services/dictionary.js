@@ -14,7 +14,6 @@ describe('the Dictionary factory', function() {
   }));
 
   describe('object', function() {
-    
 
     it('should have a findNextTask function', function() {
       expect(Dictionary).to.have.property('findNextTask');
