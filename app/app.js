@@ -52,14 +52,15 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
         'score@dashboard': {
           templateUrl: 'dashboard/score.html',
         },
-        'analytics@dashboard': {
-          templateUrl: 'dashboard/analytics.html',
-        },
         'achievements@dashboard': {
           templateUrl: 'dashboard/achievements.html'
         },
         'employers@dashboard': {
           templateUrl: 'dashboard/employers.html'
+        },
+        'users@dashboard': {
+          templateUrl: 'users/users.html',
+          controller: 'UsersCtrl'
         }
       }
     })
