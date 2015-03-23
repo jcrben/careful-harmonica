@@ -18,18 +18,34 @@
 }
 
 .score {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	font-size: 0.8em;
-	padding-bottom: 2em;
-	padding-top: 3em;
-	text-align: center;
-	background: $light-blue;
-	color: white;
-	z-index: 10;
+  position: fixed;
+  font-size: 0.8em;
+  color: #FFF;
+  z-index: 10;
+  left: 2em;
+  top: 2em;
+  text-align: center;
+  img {
+  	height: 10em;
+  }
 }
+
+.current-score {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 1em;
+  font-size: 5em;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: bold;
+  font-family: "Roboto";
+  text-shadow: 0 0 5px black;
+}
+
 
 md-card {
 	margin: 1em;

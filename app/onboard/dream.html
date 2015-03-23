@@ -1,17 +1,19 @@
-<section class="dream-job">
-	<div class="onboard-description">
-		<p>Ahoy {{ user.name }}!</p>
-		<p>You've already begun your voyage to Job Island, what would you like to do when you get there?</p>
-	</div>
-	<div class="onboard-action">
-		<form name="dream-job">
-			<md-input-container flex>
-        <label>Enter your dream job</label>
-        <input ng-model="user.dreamJob" placeholder="Lion Tamer">{{user.dreamJob}}
-      </md-input-container>
-		</form>
-	</div>
-	<md-content class="steps-nav">
-  	<md-button ui-sref="onboard.assets" class="next md-raised md-primary">Onwards!</md-button>
-  </md-content>
-</section>
+<md-card class="dream-job">
+	<md-toolbar md-scroll-shrink>
+		<h4>Ahoy {{ user.name }}!</h4>
+	</md-toolbar>
+	<md-card-content>
+		<div class="onboard-description">
+			<p>You've already begun your voyage to Job Island, what would you like to do when you get there?</p>
+		</div>
+		<div class="onboard-action">
+			<form name="dream-job">
+				<md-input-container flex>
+	        <label>Enter your dream job</label>
+	        <input ng-model="user.dreamJob" placeholder="Lion Tamer">
+	      </md-input-container>
+			</form>
+		</div>
+		<md-button ui-sref="onboard.assets" class="next md-raised md-primary">Onwards!</md-button>
+	</md-card-content>
+</md-card>
