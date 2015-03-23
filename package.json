@@ -39,7 +39,6 @@
     "karma-sinon": "^1.0.4",
     "load-grunt-tasks": "^3.1.0",
     "mocha-lcov-reporter": "0.0.2",
-    "node-sass": "^3.0.0-pre",
     "sinon": "^1.14.1",
     "time-grunt": "^1.0.0"
   },
