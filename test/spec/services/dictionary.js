@@ -11,10 +11,10 @@ describe('the Dictionary factory', function() {
   beforeEach(module('app.dictionary'));
   beforeEach(inject(function (_Dictionary_) {
     Dictionary = _Dictionary_;
+    console.log('Dictionary registered as', Dictionary)
   }));
 
   describe('object', function() {
-    
 
     it('should have a findNextTask function', function() {
       expect(Dictionary).to.have.property('findNextTask');
