@@ -29,3 +29,12 @@ dl {
     margin: 0;
   }
 }
+
+md-item-content {
+  @include transition(300ms);
+
+  &:hover {
+    cursor: pointer;
+    background: gainsboro;
+  }
+}

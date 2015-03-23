@@ -4,6 +4,7 @@
   angular.module('app.dashboard', [])
     .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', '$sce', function($scope, Data, Dictionary) {
       $scope.user = {};
+      $scope.page = 'All';
       var syncObj = {};
 
       $scope.clickTask = function(task) {

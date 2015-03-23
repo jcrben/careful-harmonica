@@ -3,19 +3,18 @@
 		<h4>Employers</h4>
 	</md-toolbar>
   <md-card-content>
-  	<md-list>
-			<md-item ng-repeat="employer in employers" class="employer" ui-sref="employer({employer: employer.name})">
-			  <md-item-content>
-			  	<div class="md-tile-left">
-			  		<h6>{{ employer.name }}</h6>
-			  	</div>
-			  	<div class="md-tile-content">
-			  		<p>{{ employer.description }}</p>
-			  	</div>
-			  </md-item-content>
-			</md-item>
-  	</md-list>
-  </md-card-content>
+		<md-item ng-model="employer" ng-repeat="employer in employers" ui-sref="employer({employer: employer.name})">
+			<md-item-content class="employer">
+				<div class="md-tile-left">
+					<span class="icon icon-coin fs1"></span>
+				</div>
+				<div class="md-tile-content">
+					<h3>{{ employer.name }}</h3>
+					<p>{{ employer.description }}</p>
+				</div>
+			</md-item-content>
+		</md-item>
+
   <md-button ui-sref="employer" class="add-job md-fab md-primary" aria-label="Add a Job">
       <md-tooltip>Add a Job</md-tooltip>
       <md-icon ui-sref="" md-svg-src="/images/cross.svg"></md-icon>

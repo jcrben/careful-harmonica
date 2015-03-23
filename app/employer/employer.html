@@ -1,9 +1,5 @@
-<div class="employer">
-  <div class="view-title">
-    <h2> {{ employer.name }} </h2>
-  </div>
-
-  <div class="view-actions" ng-hide="newPage">
+<div class="employer" layout="column">
+  <div ng-hide="newPage">
     <div ui-view="tasks"></div>
   	<div ui-view="achievements"></div>
   </div>

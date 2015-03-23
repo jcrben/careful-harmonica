@@ -10,7 +10,7 @@
     var syncObj = {};
     $scope.employer = {};
     $scope.newPage = false;
-    $scope.employerName = $stateParams.employer;
+    $scope.page = $scope.employerName = $stateParams.employer; 
 
     $scope.init = function() {
       $scope.tasks = [];
