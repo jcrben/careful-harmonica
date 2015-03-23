@@ -4,7 +4,7 @@
   </md-toolbar>
   <md-card-content>
     <md-list>
-      <md-item ng-model="employer" ng-repeat="task in tasks" ng-click="clickTask(task)">
+      <md-item ng-model="employer" ng-repeat="task in tasks">
         <md-item-content class="task">
           <div class="md-tile-left">
             <span class="icon {{ task.icon }} fs2"></span>
@@ -19,6 +19,7 @@
                 doubloons.
               </span>
             </p>
+            <md-button ng-click="clickTask(task)" class="prev md-raised">Mark Done</md-button>
           </div>
         </md-item-content>
       </md-item>

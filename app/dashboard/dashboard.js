@@ -6,8 +6,9 @@
       $scope.user = {};
       var syncObj = {};
 
-      $scope.clickTask = function() {
-
+      $scope.clickTask = function(task) {
+        $scope.employers[task.employer][task.type] = Data.timeStamp();
+        $scope.score.$value += task.score;
       };
       $scope.init = function() {
         $scope.tasks = [];
