@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject, $rootScope) {
+    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject, $rootScope, moment) {
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var ref = new Firebase(refURL);
       var userID = null;
@@ -60,6 +60,10 @@
         return Firebase.ServerValue.TIMESTAMP;
       };
 
+      var readTime = function(timestamp) {
+        return moment(timestamp).format('MM/DD/YYYY');
+      };
+
       // ng-change directive does not support input[type=file]; custom directive would be better however
       // Currently only supports the resume upload
       var addFileUploadListener = function(cb) {
@@ -94,13 +98,13 @@
 
           }, false);
         });
-      };
 
       return {
         addFileUploadListener: addFileUploadListener,
         addEmployer: addEmployer,
         getEmployers: getEmployers,
         timeStamp: timeStamp,
+        readTime: readTime,
         checkAuth: checkAuth
       };
     });

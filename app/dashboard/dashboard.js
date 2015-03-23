@@ -24,7 +24,7 @@
             if (type.length > 0) {
               obj = Dictionary.taskDetails(type[0]);
               obj.employer = employer.name;
-              obj.date = employer[type[0]];
+              obj.date = Data.readTime(employer[type[0]]);
               $scope.achievements.push(obj);
             }
           }

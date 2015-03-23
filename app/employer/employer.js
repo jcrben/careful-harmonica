@@ -27,7 +27,7 @@
       achievementTypes.forEach(function(type, i) {
         $scope.achievements.push(Dictionary.taskDetails(type));
         $scope.achievements[i].employer = $scope.employerName;
-        $scope.achievements[i].date = $scope.employer[type];
+        $scope.achievements[i].date = Data.readTime($scope.employer[type]);
       });
     };
 
