@@ -1,0 +1,87 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../../fonts/icomoon.eot?-3m9ccl');
+	src:url('../../fonts/icomoon.eot?#iefix-3m9ccl') format('embedded-opentype'),
+		url('../../fonts/icomoon.woff?-3m9ccl') format('woff'),
+		url('../../fonts/icomoon.ttf?-3m9ccl') format('truetype'),
+		url('../../fonts/icomoon.svg?-3m9ccl#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+	line-height: $base-font-size;
+	vertical-align: middle;
+}
+
+.icon-anchor:before {
+	content: "\e601";
+}
+
+.icon-compass:before {
+	content: "\e602";
+}
+
+.icon-crosshair:before {
+	content: "\e603";
+}
+
+.icon-flask:before {
+	content: "\e600";
+}
+
+.icon-globe:before {
+	content: "\e604";
+}
+
+.icon-map:before {
+	content: "\e605";
+}
+
+.icon-paper-plane:before {
+	content: "\e606";
+}
+
+.icon-pen:before {
+	content: "\e607";
+}
+
+.icon-rocket:before {
+	content: "\e608";
+}
+
+.icon-shield:before {
+	content: "\e609";
+}
+
+.icon-trophy:before {
+	content: "\e60a";
+}
+
+.icon-coin:before {
+	content: "\e941";
+}
+
+.fs0 {
+	font-size: modular-scale(2);
+}
+.fs1 {
+	font-size: modular-scale(3);
+}
+.fs2 {
+	font-size: modular-scale(4);
+}
