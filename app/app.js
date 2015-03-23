@@ -52,26 +52,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
         'score@dashboard': {
           templateUrl: 'dashboard/score.html',
         },
-        'analytics@dashboard': {
-          templateUrl: 'dashboard/analytics.html',
-        },
         'achievements@dashboard': {
           templateUrl: 'dashboard/achievements.html'
         },
-        'social@dashboard': {
-          templateUrl: 'dashboard/social.html',
-        },
         'employers@dashboard': {
           templateUrl: 'dashboard/employers.html'
-        }
-      }
-    })
-
-    // ********************** User Profile **********************
-    .state('users', {
-      url: '/users/',
-      views: {
-        '': {
+        },
+        'users@dashboard': {
           templateUrl: 'users/users.html',
           controller: 'UsersCtrl'
         }
@@ -106,30 +93,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
         '': {
           templateUrl: 'auth/land.html',
           controller: 'LandCtrl'
-        },
-        'signup@land': {
-          templateUrl: 'auth/signin.html',
-          controller: 'LandCtrl'
-        }
-      }
-    })
-
-    .state('signup', {
-      url: '/signup',
-      views: {
-        '': {
-          templateUrl: 'auth/signup.html',
-          controller: 'AuthCtrl'
-        }
-      }
-    })
-
-    .state('signin', {
-      url: '/signin',
-      views: {
-        '': {
-          templateUrl: 'auth/signin.html',
-          controller: 'AuthCtrl'
         }
       }
     })
@@ -169,8 +132,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
   Auth.checkAuth(function() {
     $location.path('/land');
   });
-$rootScope.$on('$stateChangeError', 
-  function(event, toState, toParams, fromState, fromParams, error){ 
+$rootScope.$on('$stateChangeError',
+  function(event, toState, toParams, fromState, fromParams, error){
     console.log(error);
   });
 

@@ -10,7 +10,7 @@
     var syncObj = {};
     $scope.employer = {};
     $scope.newPage = false;
-    $scope.page = $scope.employerName = $stateParams.employer; 
+    $scope.page = $scope.employerName = $stateParams.employer;
 
     $scope.init = function() {
       $scope.tasks = [];
@@ -58,11 +58,11 @@
 
     // TODO: Move new employer function to a separate module
     $scope.newEmployer = {};
-    $scope.newEmployer.name = 'Employer Name';
-    $scope.newEmployer.job = 'Job Description';
+    $scope.newEmployer.name = '';
+    $scope.newEmployer.job = '';
     $scope.newJob = function() {
       Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
-      $state.go('dashboard');
+      $state.go('employer', {employer: $scope.newEmployer.name});
     };
   }
 })();
