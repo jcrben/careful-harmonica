@@ -9,6 +9,7 @@
 
       var addEmployer = function(name, job) {
         var newEmployer = {name: name, job: job};
+        console.log(userID);
         ref.child('users').child(userID).child('employers').update(Employers.addNew(newEmployer));
       };
 

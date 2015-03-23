@@ -1,8 +1,17 @@
-<div class="new-job-view">
-  <h2>Add New Job</h2>
+<div class="new-job-view" layout="column">
+  <md-toolbar md-scroll-shrink>
+    <h4>Add a New Job</h4>
+  </md-toolbar>
+
   <form novalidate>
-    <input type="text" ng-model="newEmployer.name" ng-click="newEmployer.name = null"/>
-    <input type="text" ng-model="newEmployer.job" ng-click="newEmployer.job = null"/>
-    <button ng-click="newJob()">Add</button>
+    <md-input-container>
+      <label>Employer Name</label>
+      <input ng-model="newEmployer.name">
+    </md-input-container>
+    <md-input-container>
+      <label>Job Description</label>
+      <input ng-model="newEmployer.job">
+    </md-input-container>
+    <md-button class="next md-raised md-primary" ng-click="newJob()">Add This Job</button>
   </form>
 </div>

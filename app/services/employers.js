@@ -18,7 +18,7 @@
 
         employer.name = newEmployer.name;
         employer.description = newEmployer.job;
-        employer.new = new Date();
+        employer.new = new Date().valueOf();
         employer.application = 0;
         employer.resume = 0;
         employer.researchNotes = 0;
