@@ -75,7 +75,7 @@
             var reader = new FileReader();
             reader.readAsArrayBuffer(f);
 
-            reader.onloadend = function(e) {
+            reader.onloadend = function() {
               console.log('loading ended');
               // Firebase only allows strings so the binary is converted to a base64 string
               function _arrayBufferToBase64( buffer ) {
@@ -98,6 +98,7 @@
 
           }, false);
         });
+      };
 
       return {
         addFileUploadListener: addFileUploadListener,
