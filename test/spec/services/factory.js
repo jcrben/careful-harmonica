@@ -5,7 +5,7 @@ var should = chai.should();
 var expect = chai.expect;
 
 
-describe('the Dictionary factory', function() {
+describe('the Data factory', function() {
 
   var Data;
   beforeEach(module('app.factory'));
@@ -17,84 +17,93 @@ describe('the Dictionary factory', function() {
     
 
     it('should have a addEmployer function', function() {
-      console.log(Data);
-      // expect(Data).to.have.property('addEmployer');
+      expect(Data).to.have.property('addEmployer');
     });
 
-    xit('should have a findRecentTask function', function() {
-      expect(Dictionary).to.have.property('findRecentTask');
+    it('should have a getEmployers function', function() {
+      expect(Data).to.have.property('getEmployers');
     });
 
-    xit('should have a taskDetails function', function() {
-      expect(Dictionary).to.have.property('taskDetails');
+    it('should have a timeStamp function', function() {
+      expect(Data).to.have.property('timeStamp');
+    });
+
+    it('should have a readTime function', function() {
+      expect(Data).to.have.property('readTime');
+    });
+
+    it('should have a checkAuth function', function() {
+      expect(Data).to.have.property('checkAuth');
     });
 
   });
 
-  // describe('function', function() {
+  describe('function', function() {
     
-  //   describe('findNextTask', function() {
+    describe('addEmployer', function() {
 
-  //     it('should return an array of job priorities', function() {
-  //       var result = Dictionary.findNextTask({}, 5)
-  //       expect(Array.isArray(result)).to.be.true;
-  //       expect(result).to.include('researchNotes', 'resume', 'application',
-  //       'emails', 'calls');
-  //     });
+      it('should be a function', function() {
+        expect(Data.addEmployer).to.be.a.fuction;
+      });
 
-  //     it('should not return priorities that are already in the job', function() {
-  //       var result = Dictionary.findNextTask({researchNotes:true}, 5)
-  //       expect(result).to.not.include('researchNotes');
-  //     });
+    });
 
-  //     it('should only return the number of next tasks requested', function() {
-  //       var result = Dictionary.findNextTask({}, 3);
-  //       expect(result).to.have.length(3);
-  //     });
+    describe('getEmployers', function() {
 
-  //   });
+      it('should be a function', function() {
+        expect(Data.getEmployers).to.be.a.fuction;
+      });
 
-  //   describe('findRecentTask', function() {
+    });
 
-  //     it('should return an array of job priorities', function() {
-  //       var result = Dictionary.findRecentTask({researchNotes:true, resume:true}, 2);
-  //       expect(Array.isArray(result)).to.be.true;
-  //       expect(result).to.include('researchNotes', 'resume');
-  //     });
+    describe('getScore', function() {
 
-  //     it('should return only recent priorities that are required for the job', function() {
-  //       var result = Dictionary.findRecentTask({calls:true, resume:true}, 2);
-  //       expect(result).to.not.include('researchNotes');
-  //     });
+      it('should be a function', function() {
+        expect(Data.getScore).to.be.a.fuction;
+      });
 
-  //     it('should only return the number of recent tasks requested', function() {
-  //       var result = Dictionary.findRecentTask({calls:true, resume:true, followups:true}, 2);
-  //       expect(result).to.have.length(2);
-  //     });
+    });
 
-  //   });
+    describe('getResume', function() {
 
-  //   describe('taskDetails', function() {
-      
-  //     it('should return an object', function() {
-  //       var result = Dictionary.taskDetails('followups')
-  //       expect(result).to.be.an('object');
-  //     });
+      it('should be a function', function() {
+        expect(Data.getResume).to.be.a.fuction;
+      });
 
-  //     it('should return the right title', function() {
-  //       var result = Dictionary.taskDetails('followups')
-  //       expect(result.title).to.equal('Don\'t forget');
-  //     });
+    });
 
-  //   });
+    describe('checkAuth', function() {
 
-  //   describe('getRank', function() {
-  //     it('should return a rank', function() {
-  //       var result = Dictionary.getRank(20);
-  //       expect(result).to.equal('Swabbie');
-  //     })
-  //   })
+      it('should be a function', function() {
+        expect(Data.checkAuth).to.be.a.fuction;
+      });
 
-  // });
+    });
+
+    describe('timeStamp', function() {
+
+      it('should be a function', function() {
+        expect(Data.timeStamp).to.be.a.fuction;
+      });
+
+    });
+
+    describe('readTime', function() {
+
+      it('should be a function', function() {
+        expect(Data.readTime).to.be.a.fuction;
+      });
+
+    });
+
+    describe('addFileUploadListener', function() {
+
+      it('should be a function', function() {
+        expect(Data.addFileUploadListener).to.be.a.fuction;
+      });
+
+    });
+
+  });
 
 });
