@@ -304,11 +304,15 @@ module.exports = function (grunt) {
         assetsDirs: [
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
+          '<%= yeoman.dist %>/styles',
+          '<%= yeoman.dist %>/fonts'
         ],
         patterns: {
           html: [
             [/(\/images\/\w*\.svg)/, "Replacing svg files in md-svg-src"]
+          ],
+          css: [
+            [/(\/fonts\/\w*\.\w{3,4})/, "Replacing font files"]
           ]
         }
       }
