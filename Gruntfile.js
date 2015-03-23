@@ -272,7 +272,7 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>fonts/*'
+          '<%= yeoman.dist %>/fonts/*'
         ]
       }
     },
@@ -305,7 +305,12 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
           '<%= yeoman.dist %>/styles'
-        ]
+        ],
+        patterns: {
+          html: [
+            [/(\/images\/\w*\.svg)/, "Replacing svg files in md-svg-src"]
+          ]
+        }
       }
     },
 
