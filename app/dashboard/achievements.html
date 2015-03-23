@@ -5,14 +5,19 @@
   <md-card-content>
     <div ng-model="employer" class="recent-activity"  ng-repeat="achievement in achievements">
       <h5> {{ achievement.title }} </h5>
-      <p>
-        {{ achievement.description }} {{ achievement.employer }} to earn
-        <strong>{{ achievement.score }}</strong>
-        doubloons.
-      </p>
-      <p>
-        Completed on {{ achievement.date }}
-      </p>
+      <ul>
+        <li>
+          <span class="icon icon-trophy fs2"></span>
+          <span class="task">
+            {{ achievement.description }} {{ achievement.employer }} to earn
+            <b>{{ achievement.score }}</b>
+            doubloons.
+          </span>
+          <span class="task-date">
+            Completed on {{ achievement.date }}
+          </span>
+        </li>
+      </ul>
     </div>
   </md-card-content>
 </md-card>
