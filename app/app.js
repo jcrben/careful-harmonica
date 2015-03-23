@@ -58,9 +58,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
         'achievements@dashboard': {
           templateUrl: 'dashboard/achievements.html'
         },
-        'social@dashboard': {
-          templateUrl: 'dashboard/social.html',
-        },
         'employers@dashboard': {
           templateUrl: 'dashboard/employers.html'
         }
@@ -169,8 +166,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
   Auth.checkAuth(function() {
     $location.path('/land');
   });
-$rootScope.$on('$stateChangeError', 
-  function(event, toState, toParams, fromState, fromParams, error){ 
+$rootScope.$on('$stateChangeError',
+  function(event, toState, toParams, fromState, fromParams, error){
     console.log(error);
   });
 
