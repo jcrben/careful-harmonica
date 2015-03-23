@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase'])
-    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject, $rootScope, moment) {
+  angular.module('app.factory', ['app.dictionary', 'app.employers', 'firebase', 'ui.router'])
+    .factory('Data', function(Dictionary, Employers, $state, $firebaseObject, $rootScope) {
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var ref = new Firebase(refURL);
       var userID = null;
