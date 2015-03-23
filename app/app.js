@@ -16,6 +16,7 @@ var app = angular
     'ngTouch',
     'ngMaterial',
     'ui.router',
+    'ngSanitize',
 
     'app.factory',
     'app.auth',

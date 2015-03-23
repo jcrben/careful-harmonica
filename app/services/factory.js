@@ -60,6 +60,8 @@
         return Firebase.ServerValue.TIMESTAMP;
       };
 
+      // ng-change directive does not support input[type=file]; custom directive would be better however
+      // Currently only supports the resume upload
       var addFileUploadListener = function(cb) {
         angular.element(document).ready(function () {
           var fileUpload = document.querySelector('#resumeUpload');

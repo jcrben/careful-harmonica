@@ -2,13 +2,10 @@
   'use strict';
 
   angular.module('app.dashboard', [])
-    .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', '$sce', function($scope, Data, Dictionary, $sce) {
+    .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', '$sce', function($scope, Data, Dictionary) {
       $scope.user = {};
       var syncObj = {};
 
-      $scope.renderHTML = function(value) {
-        return $sce.trustAsResourceUrl(value);
-      };
       $scope.clickTask = function() {
 
       };
