@@ -1,17 +1,30 @@
 (function() {
   'use strict';
 
-  angular.module('app.onboard', ['ngMaterial'])
-    .controller('OnboardCtrl', ['$scope', 'Data', function($scope, Data) {
+  angular.module('app.onboard', ['ngMaterial', 'firebase'])
+    .controller('OnboardCtrl', OnboardCtrl);
+      
+    OnboardCtrl.$inject = ['$scope', '$firebaseObject', 'Data', '$rootScope', '$sce'];
+    function OnboardCtrl($scope, $firebaseObject, Data, $rootScope, $sce) {
       $scope.user = {};
-      $scope.signup = function() {
-        Data.signup($scope.user.email, $scope.user.password);
-      };
+      var refURL = 'https://careful-harmonica.firebaseio.com/';
+      var ref = new Firebase(refURL);
+      ref.onAuth(function(authData) {
+        var user = ref.child('users').child(authData.uid);
+        var obj = $firebaseObject(user);
+        obj.$loaded().then(function(data) {
+          data.$bindTo($scope, 'user');
+        });
 
-      $scope.signin = function() {
-        Data.signin($scope.user.email, $scope.user.password);
-      };
+      });
 
-    }]);
-
+      $rootScope.$on('$stateChangeSuccess', function(evt, toState) {
+        if (toState.url === '/assets') {
+          console.log('firing uploadListener')
+          Data.addFileUploadListener(function(base64File) {
+            $scope.$apply(function() {$scope.user.resume = base64File;});
+          });
+        }
+      });
+    }
 })();

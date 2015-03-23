@@ -13,10 +13,10 @@ var app = angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngSanitize',
     'ngTouch',
     'ngMaterial',
     'ui.router',
+    'ngSanitize',
 
     'app.factory',
     'app.auth',
@@ -28,10 +28,10 @@ var app = angular
   ]);
 
 // ********************** Route Definitions **********************
-app.config(function($stateProvider, $urlRouterProvider) {
-
+app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
+  function($stateProvider, $urlRouterProvider, $compileProvider) {
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|ftp|mailto|chrome-extension):/);
   $urlRouterProvider.otherwise('/');
-
   $stateProvider
 
     // ********************** Dashboard **********************
@@ -139,12 +139,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('onboard.dream', {
       url: '/dream',
-      templateUrl: 'onboard/dream.html',
+      templateUrl: 'onboard/dream.html'
+
     })
 
     .state('onboard.assets', {
       url: '/assets',
       templateUrl: 'onboard/assets.html',
+      resolve: {Data: 'Data'}
     })
 
     .state('onboard.goal', {
@@ -157,10 +159,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'onboard/install.html',
     });
 
-})
+}])
 
-.run(function($location, Auth) {
+.run(function($location, Auth, $rootScope) {
   Auth.checkAuth(function() {
     $location.path('/land');
   });
+$rootScope.$on('$stateChangeError', 
+  function(event, toState, toParams, fromState, fromParams, error){ 
+    console.log(error);
+  });
+
 });

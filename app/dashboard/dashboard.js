@@ -2,14 +2,13 @@
   'use strict';
 
   angular.module('app.dashboard', [])
-    .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', function($scope, Data, Dictionary) {
+    .controller('DashboardCtrl', ['$scope', 'Data', 'Dictionary', '$sce', function($scope, Data, Dictionary) {
       $scope.user = {};
       var syncObj = {};
 
       $scope.clickTask = function() {
 
       };
-
       $scope.init = function() {
         $scope.tasks = [];
         $scope.achievements = [];
@@ -36,6 +35,7 @@
         syncObj = Data.checkAuth({
           success: function() {
             $scope.init();
+
           },
           error: function() {
             console.log('no login detected');

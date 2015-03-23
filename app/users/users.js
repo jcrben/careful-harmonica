@@ -13,10 +13,8 @@
     var getUsers = $firebaseObject(ref);
     getUsers.$loaded().then(function(data) {
       angular.forEach(data.users, function(user) {
-        console.log(user.score);
         var rank = Dictionary.getRank(user.score);
         user.rank = rank;
-        console.log(user.rank);
         $scope.users.push(user);
       });
     });
