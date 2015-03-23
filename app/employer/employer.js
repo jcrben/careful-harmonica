@@ -62,7 +62,7 @@
     $scope.newEmployer.job = '';
     $scope.newJob = function() {
       Data.addEmployer($scope.newEmployer.name, $scope.newEmployer.job);
-      $state.go('dashboard');
+      $state.go('employer', {employer: $scope.newEmployer.name});
     };
   }
 })();
