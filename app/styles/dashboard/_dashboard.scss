@@ -53,10 +53,28 @@ md-toolbar {
 	md-toolbar {
 		background: $light-blue;
 	}
+
+	.achievement {
+		@include transition(300ms);
+
+		&:hover {
+			cursor: pointer;
+			background: gainsboro;
+		}
+	}
 }
 
 .to-do {
 	md-toolbar {
 		background: $navy;
+	}
+
+	.task {
+		@include transition(300ms);
+
+		&:hover {
+			cursor: pointer;
+			background: gainsboro;
+		}
 	}
 }

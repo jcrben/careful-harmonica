@@ -27,6 +27,10 @@ var app = angular
     'app.land'
   ]);
 
+// ********************** Constants **********************
+
+app.constant('moment', moment);
+
 // ********************** Route Definitions **********************
 app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
   function($stateProvider, $urlRouterProvider, $compileProvider) {

@@ -46,48 +46,56 @@
             type: 'new',
             title: 'Shipshape',
             description: 'Add',
+            icon: 'icon-anchor',
             score: 5
           },
           application: {
             type: 'application',
             title: 'Gather ye\' papers!',
             description: 'Send an application to',
+            icon: 'icon-paper-plane',
             score: 20
           },
           resume: {
             type: 'resume',
             title: 'Who goes there?',
             description: 'Send a resume to',
+            icon: 'icon-pen',
             score: 10
           },
           researchNotes: {
             type: 'researchNotes',
             title: 'Reconnaissance',
             description: 'Research',
+            icon: 'icon-compass',
             score: 5
           },
           emails: {
             type: 'emails',
             title: 'Message in a bottle',
             description: 'Send an email to',
+            icon: 'icon-flask',
             score: 10
           },
           calls: {
             type: 'calls',
             title: 'Ahoy, matey!',
             description: 'Make a call to',
+            icon: 'icon-globe',
             score: 25
           },
           interviews: {
             type: 'interviews',
             title: 'All hands on deck!',
             description:  'Interview with',
+            icon: 'icon-crosshair',
             score: 50
           },
           followups: {
             type: 'followups',
             title: 'Don\'t forget',
             description: 'Follow up with',
+            icon: 'icon-rocket',
             score: 30
           }
         };
@@ -96,7 +104,7 @@
       };
 
       var getRank = function(score) {
-        var ranks = ['Swabbie', 'Rigger', 'Sailor', 'Boatswain', 
+        var ranks = ['Swabbie', 'Rigger', 'Sailor', 'Boatswain',
         'Quartermaster', 'First Mate', 'Captain'];
         var result;
         var baseScore = 30;

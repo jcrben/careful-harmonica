@@ -3,14 +3,25 @@
     <h4>Current Missions</h4>
   </md-toolbar>
   <md-card-content>
-    <div ng-model="employer" class="public-to-dos"
-      ng-repeat="task in tasks" ng-click="clickTask(task)">
-      <h5> {{ task.title }} </h5>
-      <p>
-        {{ task.description }} {{ task.employer }} to earn
-        <b>{{ task.score }}</b>
-        doubloons.
-      </p>
-    </div>
+    <md-list>
+      <md-item ng-model="employer" ng-repeat="task in tasks" ng-click="clickTask(task)">
+        <md-item-content class="task">
+          <div class="md-tile-left">
+            <span class="icon {{ task.icon }} fs2"></span>
+          </div>
+          <div class="md-tile-content">
+            <h3>{{ task.title }}</h3>
+            <h4>{{ task.employer }}</h4>
+            <p>
+              <span class="task">
+                {{ task.description }} {{ task.employer }} to earn
+                <b>{{ task.score }}</b>
+                doubloons.
+              </span>
+            </p>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
   </md-card-content>
 </md-card>
