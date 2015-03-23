@@ -65,17 +65,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
       }
     })
 
-    // ********************** User Profile **********************
-    .state('users', {
-      url: '/users/',
-      views: {
-        '': {
-          templateUrl: 'users/users.html',
-          controller: 'UsersCtrl'
-        }
-      }
-    })
-
     // ********************** Job Page **********************
     .state('employer', {
       url: '/employer/:employer',
@@ -104,30 +93,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
         '': {
           templateUrl: 'auth/land.html',
           controller: 'LandCtrl'
-        },
-        'signup@land': {
-          templateUrl: 'auth/signin.html',
-          controller: 'LandCtrl'
-        }
-      }
-    })
-
-    .state('signup', {
-      url: '/signup',
-      views: {
-        '': {
-          templateUrl: 'auth/signup.html',
-          controller: 'AuthCtrl'
-        }
-      }
-    })
-
-    .state('signin', {
-      url: '/signin',
-      views: {
-        '': {
-          templateUrl: 'auth/signin.html',
-          controller: 'AuthCtrl'
         }
       }
     })
