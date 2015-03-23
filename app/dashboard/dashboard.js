@@ -37,7 +37,9 @@
         syncObj = Data.checkAuth({
           success: function() {
             $scope.init();
-
+            syncObj.employers.$watch(function() {
+              $scope.init();
+            });
           },
           error: function() {
             console.log('no login detected');
