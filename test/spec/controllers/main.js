@@ -87,6 +87,13 @@ describe('the Dictionary factory', function() {
 
     });
 
+    describe('getRank', function() {
+      it('should return a rank', function() {
+        var result = Dictionary.getRank(20);
+        expect(result).to.equal('Swabbie');
+      })
+    })
+
   });
 
 });
