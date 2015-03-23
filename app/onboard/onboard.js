@@ -4,8 +4,8 @@
   angular.module('app.onboard', ['ngMaterial', 'firebase'])
     .controller('OnboardCtrl', OnboardCtrl);
       
-    OnboardCtrl.$inject = ['$scope', '$firebaseObject', 'Data', '$rootScope'];
-    function OnboardCtrl($scope, $firebaseObject, Data, $rootScope) {
+    OnboardCtrl.$inject = ['$scope', '$firebaseObject', 'Data', '$rootScope', '$sce'];
+    function OnboardCtrl($scope, $firebaseObject, Data, $rootScope, $sce) {
       $scope.user = {};
       var refURL = 'https://careful-harmonica.firebaseio.com/';
       var ref = new Firebase(refURL);
@@ -18,8 +18,9 @@
 
       });
 
-      $rootScope.$on('$stateChangeStart', function(evt, toState) {
+      $rootScope.$on('$stateChangeSuccess', function(evt, toState) {
         if (toState.url === '/assets') {
+          console.log('firing uploadListener')
           Data.addFileUploadListener(function(base64File) {
             $scope.$apply(function() {$scope.user.resume = base64File;});
           });

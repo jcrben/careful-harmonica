@@ -13,7 +13,6 @@ var app = angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngSanitize',
     'ngTouch',
     'ngMaterial',
     'ui.router',
@@ -28,11 +27,10 @@ var app = angular
   ]);
 
 // ********************** Route Definitions **********************
-app.config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
-
+app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
+  function($stateProvider, $urlRouterProvider, $compileProvider) {
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data|ftp|mailto|chrome-extension):/);
   $urlRouterProvider.otherwise('/');
-
   $stateProvider
 
     // ********************** Dashboard **********************

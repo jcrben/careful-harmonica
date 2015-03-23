@@ -1,6 +1,7 @@
 <div class="dashboard">
   <div class="view-title">
     <h2>Dashboard</h2>
+    <a ng-href="{{renderHTML('data:application/pdf;base64,'+resume.$value)}}" download>Resume</a>
   </div>
   <div class="view-actions">
     <div ui-view="score"></div>

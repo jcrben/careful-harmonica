@@ -28,6 +28,12 @@
         return scoreSync;
       };
 
+      var getResume = function($scope) {
+        var resume = ref.child('users').child(userID).child('resume');
+        var resumeSync = $firebaseObject(resume);
+        resumeSync.$bindTo($scope, 'resume');
+      };
+
       var checkAuth = function(cb, $scope) {
         var sync = {};
 
@@ -41,6 +47,7 @@
             if ($scope) {
               sync.score = getScore($scope);
               sync.employers = getEmployers($scope);
+              sync.resume = getResume($scope);
               sync.employers.$loaded().then(cb.success);
             }
           }
@@ -54,7 +61,6 @@
       };
 
       var addFileUploadListener = function(cb) {
-        console.log('firing');
         angular.element(document).ready(function () {
           var fileUpload = document.querySelector('#resumeUpload');
           fileUpload.addEventListener('change', function(e) {
@@ -64,6 +70,7 @@
             reader.readAsArrayBuffer(f);
 
             reader.onloadend = function(e) {
+              console.log('loading ended');
               // Firebase only allows strings so the binary is converted to a base64 string
               function _arrayBufferToBase64( buffer ) {
                   var binary = '';
