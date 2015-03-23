@@ -23,7 +23,7 @@ module.exports = function(config) {
       ]),
 
     // list of files / patterns to exclude
-    exclude: [
+    exclude: ['app/services/auth.js'
     ],
 
     // progress reporter: lists each test run and whether they pass/fail
@@ -34,7 +34,10 @@ module.exports = function(config) {
       // Source files you want to generate coverage reports for
       // This should not include tests or libraries
       // These files will be instrumented by Istanbul
-      'app/services/*.js': ['coverage']
+      'app/services/*.js': ['coverage'],
+      'app/onboard/*.js': ['coverage'],
+      'app/employer/*.js': ['coverage'],
+      'app/users/*.js': ['coverage']
     },
 
     coverageReporter: {
